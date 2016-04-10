@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-cloak ng-controller="NavbarController as vm">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" animate="fadeIn" ng-controller="NavbarController as vm">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,12 +8,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Pando-3D</a>
+            <a class="navbar-brand" href="/">Pando-3D</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">HOME</a></li>
-                <li class="dropdown">
+                <li class="active"><a href="/">HOME</a></li>
+                <li ng-if="vm.currentUser" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="admin.html">Admin Page</a></li>
@@ -50,13 +50,13 @@
                                     </form>
                                 </div>
                                 <div class="bottom text-center">
-                                    New here ? <a href="#"><b>Join Us</b></a>
+                                    New here ? <a href="/register"><b>Join Us</b></a>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li ng-if="vm.currentUser"><a href="/users/{{vm.username}}">{{vm.username}}</a></li>
+                <li ng-if="vm.currentUser"><a href="/users/{{vm.currentUser}}">{{vm.currentUser.id}}</a></li>
                 <li ng-if="vm.currentUser"><a ng-click="vm.logout()">Logout</a></li>
             </ul><!--/.nav navbar-nav -->
         </div><!--/.nav-collapse -->
