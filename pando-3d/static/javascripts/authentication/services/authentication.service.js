@@ -58,6 +58,7 @@
              * @desc Set the authenticated account and redirect to index
              */
             function loginSuccessFn(data, status, headers, config) {
+
                 Authentication.setAuthenticatedAccount(data.data);
 
                 window.location = '/';
@@ -68,7 +69,7 @@
              * @desc Log "Epic failure!" to the console
              */
             function loginErrorFn(data, status, headers, config) {
-                console.error('Epic failure!');
+                console.error(data.data.message);
             }
         }
 
@@ -91,7 +92,7 @@
              * @desc Log "Epic failure!" to the console
              */
             function logoutErrorFn(data, status, headers, config) {
-                console.error('Epic failure!');
+                console.error(data.data.message);
             }
         }
 
@@ -114,8 +115,6 @@
         function unauthenticate() {
             delete $cookies.authenticatedAccount;
         }
-
-
     }
 
 })();

@@ -13,15 +13,19 @@
     function NavbarController($scope, Authentication) {
         var vm = this;
 
-        vm.logout = logout;
+        vm.username = 'pesho';
+        waitForLogin();
 
-        /**
-         * @name logout
-         * @desc Log the user out
-         * @memberOf thinkster.layout.controllers.NavbarController
-         */
-        function logout() {
+        vm.logout = function logout() {
             Authentication.logout();
+            vm.currentUser = undefined;
+            waitForLogin();
+            $location.path('/');
+        };
+
+        function waitForLogin() {
+            vm.currentUser = Authentication.getAuthenticatedAccount();
+            console.log(vm.currentUser);
         }
     }
 })();
