@@ -15,7 +15,7 @@
   {% include 'stylesheets.html' %}
 </head>
 
-<body>
+<body ng-app="pando-3d" ng-cloak>
 {% include 'navbar.html' %}
 
       <div class="container">
@@ -26,6 +26,8 @@
           <div ng-view></div>
         </div>
       </div><! --/container -->
+
+{% include 'footer.html' %}
 {% include 'javascripts.html' %}
 
 </body>
