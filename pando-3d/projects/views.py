@@ -21,6 +21,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
         return super(ProjectViewSet, self).perform_create(serializer)
 
+
 class AccountProjectsViewSet(viewsets.ViewSet):
     queryset = Project.objects.select_related('author').all()
     serializer_class = ProjectSerializer
