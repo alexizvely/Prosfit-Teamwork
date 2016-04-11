@@ -1,13 +1,19 @@
+<<<<<<< HEAD
 <!-- Fixed navbar -->
 <div class="animated slideInUp navbar navbar-default navbar-fixed-top" role="navigation" animate="fadeIn" ng-controller="NavbarController as vm">
     <div class="container">
+=======
+<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm">
+    <div class="container-fluid">
+>>>>>>> 80f7eddd140f252293b4f73867c096713b262d6f
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#not-google-plus-nav">
+                <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+<<<<<<< HEAD
             <a class="navbar-brand" href="/">Pando-3D</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
@@ -58,5 +64,23 @@
                 {% endif %}
             </ul><!--/.nav navbar-nav -->
         </div><!--/.nav-collapse -->
+=======
+            <a class="navbar-brand" href="/">Not Google Plus</a>
+        </div>
+        <!-- ./navbar-header -->
+        <div class="collapse navbar-collapse" id="not-google-plus-nav">
+            <ul class="nav navbar-nav pull-right">
+                {% if user.is_authenticated %}
+                <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
+                <li><a href="/+{{ user.username }}/settings">Settings</a></li>
+                <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li> {% else %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- /.collapse.navbar-collapse -->
+>>>>>>> 80f7eddd140f252293b4f73867c096713b262d6f
     </div>
-</div>
+    <!-- /.container-fluid -->
+</nav>
