@@ -459,6 +459,17 @@ csmall2 {
 	font-size: 18px;
 }
 
+#error-template-btn{
+	position:relative;
+	z-index: 1;
+	/*float-displace: ;*/
+}
+
+#error-template-img{
+	position:relative;
+	z-index: 0;
+}
+
 /*	################################################################
 LOGIN DROP-DOWN
 ################################################################# */
