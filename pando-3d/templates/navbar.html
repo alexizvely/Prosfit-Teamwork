@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-<div class="animated slideInUp navbar navbar-default navbar-fixed-top" role="navigation" animate="fadeIn" ng-controller="NavbarController as vm">
+<div class="animated slideInUp navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="NavbarController as vm">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -14,11 +14,11 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 {% if user.is_authenticated %}
-                <li ng-if="vm.currentUser"><a href="/projects">Projects</a></li>
-                <li ng-if="vm.currentUser"><a href="/create">Create a project</a></li>
-                <li ng-if="vm.currentUser"><a href="/admin">Admin Panel</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/create">Create a project</a></li>
+                <li><a href="/admin">Admin Panel</a></li>
                 {% endif %}
-                <li ng-if="!vm.currentUser" class="dropdown">
+                <li ng-if="!user" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                     <ul id="login-dp" class="dropdown-menu">
                         <li>
@@ -33,7 +33,7 @@
                                         <div class="form-group">
                                             <label class="sr-only" for="exampleInputPassword2">Password</label>
                                             <input type="password" class="form-control" id="exampleInputPassword2" ng-model="vm.password" placeholder="ex. thisisnotgoogleplus" required>
-                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                            <!--<div class="help-block text-right"><a href="">Forget the password ?</a></div>-->
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
@@ -53,8 +53,8 @@
                     </ul>
                 </li>
                 {% if user.is_authenticated %}
-                <li ng-if="vm.currentUser"><a href="/users/{{user.username}}">{{user.username}}</a></li>
-                <li ng-if="vm.currentUser"><a ng-click="vm.logout()">Logout</a></li>
+                <li><a href="/users/{{user.username}}">{{user.username}}</a></li>
+                <li><a ng-click="vm.logout()">Logout</a></li>
                 {% endif %}
             </ul><!--/.nav navbar-nav -->
         </div><!--/.nav-collapse -->
