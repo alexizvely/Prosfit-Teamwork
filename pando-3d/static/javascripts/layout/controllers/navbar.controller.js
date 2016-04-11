@@ -27,8 +27,8 @@
             if (Authentication.isAuthenticated()) {
 
                 vm.currentUser = JSON.parse($cookies.authenticatedAccount);
+                return vm.currentUser;
             }
-            return vm.currentUser;
         }
     }
 })();
