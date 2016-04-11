@@ -1,6 +1,8 @@
 run wstorm or cmd as administrator
 cmd in the main project folder
 
+cd \Work\Prosfit\Project\pando-3d
+
 $ mkvirtualenv pando3d
 $ py -2 -m pip install -r requirements.txt
 $ npm install -g bower
