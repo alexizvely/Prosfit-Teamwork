@@ -92,7 +92,7 @@
              * @desc Log "Epic failure!" to the console
              */
             function logoutErrorFn(data, status, headers, config) {
-                console.error(data.data.message);
+                console.error(data);
             }
         }
 
@@ -100,7 +100,7 @@
             if (!$cookies.authenticatedAccount) {
                 return;
             }
-
+            console.log(JSON.parse($cookies.authenticatedAccount));
             return JSON.parse($cookies.authenticatedAccount);
         }
 

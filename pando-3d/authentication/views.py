@@ -13,6 +13,7 @@ class LogoutView(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request, format=None):
+        print(request)
         logout(request)
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)

@@ -5,15 +5,15 @@
         .module('pando-3d.layout.controllers')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope', 'Authentication'];
+    NavbarController.$inject = ['$location', '$scope', '$cookies', 'Authentication'];
 
     /**
      * @namespace NavbarController
      */
-    function NavbarController($scope, Authentication) {
+    function NavbarController($location, $scope, $cookies, Authentication) {
         var vm = this;
+        vm.currentUser = {};
 
-        vm.username = 'pesho';
         waitForLogin();
 
         vm.logout = function logout() {
@@ -24,8 +24,11 @@
         };
 
         function waitForLogin() {
-            vm.currentUser = Authentication.getAuthenticatedAccount();
-            console.log(vm.currentUser);
+            if (Authentication.isAuthenticated()) {
+
+                vm.currentUser = JSON.parse($cookies.authenticatedAccount);
+            }
+            return vm.currentUser;
         }
     }
 })();
