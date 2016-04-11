@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from models import Project
 from permissions import IsAuthorOfPost
-from serializers import PostSerializer
+from serializers import ProjectSerializer
 
 # Create your views here.
 
