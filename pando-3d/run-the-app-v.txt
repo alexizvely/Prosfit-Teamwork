@@ -2,7 +2,7 @@ run wstorm or cmd as administrator
 cmd in the main project folder
 
 $ mkvirtualenv pando3d
-$ pip -2 -m install -r requirements.txt
+$ py -2 -m pip install -r requirements.txt
 $ npm install -g bower
 $ npm install
 $ bower install
