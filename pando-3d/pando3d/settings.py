@@ -26,9 +26,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'compressor',
+
     'authentication',
+    'projects',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,10 +55,15 @@ WSGI_APPLICATION = 'pando3d.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+        'default':{
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'pando3d',
+            'USER': 'pando3duser',
+            'PASSWORD': 'easy_password_for_dev',
+            'HOST': 'localhost',
+            'PORT': '',
+            }
+        }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
