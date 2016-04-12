@@ -36,6 +36,8 @@
             controller: 'AdminController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/admin.html'
+        }).when('/user', {
+            templateUrl: '/static/templates/user.html'
         }).when('/notfound', {
             templateUrl: '/static/templates/404.html'
         })
