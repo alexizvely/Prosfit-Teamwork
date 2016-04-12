@@ -11,5 +11,5 @@
         .module('pando-3d.layout.controllers', []);
 
     angular
-        .module('pando-3d.layout.services', ['ngCookies']);
+        .module('pando-3d.layout.services', []);
 })();
