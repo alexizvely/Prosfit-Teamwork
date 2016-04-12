@@ -1,8 +1,6 @@
 (function() {
     'use strict';
 
-
-
     angular
         .module('pando-3d', [
             'pando-3d.config',
