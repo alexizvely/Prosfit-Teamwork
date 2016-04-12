@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a02e6208-8bb5-404d-88b7-e1714898ca7c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/main.controller.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pando-3d/static/javascripts/layout/shapes-data.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pando-3d/static/javascripts/mock-shapes.js" afterPath="$PROJECT_DIR$/pando-3d/static/javascripts/layout/mock-shapes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pando-3d/static/javascripts/app.js" afterPath="$PROJECT_DIR$/pando-3d/static/javascripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js" afterPath="$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js" afterPath="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pando-3d/static/templates/product/projects.html" afterPath="$PROJECT_DIR$/pando-3d/static/templates/product/projects.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pando-3d/templates/javascripts.html" afterPath="$PROJECT_DIR$/pando-3d/templates/javascripts.html" />
     </list>
     <ignored path="Project.iws" />
@@ -30,18 +31,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.862069">
-              <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notifier.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/notifier.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="26" />
+            <state vertical-scroll-proportion="-7.965517">
+              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -51,37 +42,27 @@
         <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/layout.module.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.module.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/common.module.js">
+      <file leaf-file-name="mock-shapes.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/mock-shapes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3207547">
+              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shapes-data.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/shapes-data.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="javascripts.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pando-3d/templates/javascripts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7272727">
-              <caret line="24" column="101" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-data.service.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69982845">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -101,7 +82,17 @@
         <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="15" column="56" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="projects.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pando-3d/static/templates/product/projects.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.807693">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -112,6 +103,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="javascripts.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pando-3d/templates/javascripts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.0">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -145,7 +146,6 @@
         <option value="$PROJECT_DIR$/pando-3d/authentication/views.py" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/authentication/authentication.module.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/main.controller.js" />
-        <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/single-project.controller.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/admin/controllers/admin.controller.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/admin.controller.js" />
@@ -153,7 +153,6 @@
         <option value="$PROJECT_DIR$/pando-3d/static/templates/authentication/register.html" />
         <option value="$PROJECT_DIR$/pando-3d/static/templates/main.html" />
         <option value="$PROJECT_DIR$/pando-3d/templates/footer.html" />
-        <option value="$PROJECT_DIR$/pando-3d/static/templates/product/projects.html" />
         <option value="$PROJECT_DIR$/pando-3d/static/templates/product/single-project.html" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/authentication/controllers/register.controller.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/user.controller.js" />
@@ -177,8 +176,12 @@
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/common/notifier-service.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/common/common.module.js" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/app.js" />
-        <option value="$PROJECT_DIR$/pando-3d/templates/javascripts.html" />
         <option value="$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js" />
+        <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js" />
+        <option value="$PROJECT_DIR$/pando-3d/static/templates/product/projects.html" />
+        <option value="$PROJECT_DIR$/pando-3d/templates/javascripts.html" />
+        <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/shapes-data.js" />
+        <option value="$PROJECT_DIR$/pando-3d/static/javascripts/layout/mock-shapes.js" />
       </list>
     </option>
   </component>
@@ -255,6 +258,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pando-3d" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pando-3d" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="product" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,6 +461,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pando-3d" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authentication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pando-3d" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="authentication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -426,6 +533,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Work\Prosfit\Project\pando-3d\static\javascripts\layout" />
       <recent name="C:\Work\Prosfit\Project\pando-3d\static\javascripts\layout\controllers" />
       <recent name="C:\Work\Prosfit\Project\pando-3d\static\javascripts\admin\controllers" />
       <recent name="C:\Work\Prosfit\Project\pando-3d\static\templates" />
@@ -589,13 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1454546">
           <caret line="63" column="28" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/templates/product/projects.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3649635">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -843,18 +944,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/common.module.js">
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/navbar.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/layout.module.js">
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.69982845">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -867,42 +968,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js">
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/common.module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3207547">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/navbar.controller.js">
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/layout.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/controllers/projects.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="56" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.862069">
-          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
+        <state vertical-scroll-proportion="-7.965517">
+          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/templates/product/projects.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.807693">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pando-3d/templates/javascripts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7272727">
-          <caret line="24" column="101" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
+        <state vertical-scroll-proportion="-19.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/common/base-data.service.js">
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/shapes-data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69982845">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pando-3d/static/javascripts/layout/mock-shapes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3207547">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
           <folding />
         </state>
       </provider>
