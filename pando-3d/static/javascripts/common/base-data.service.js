@@ -17,7 +17,7 @@
                 deferred.reject();
             }
             else {
-                var URL = baseurl + url;
+                var URL = appSettings.serverPath + url;
 
                 $http.get(URL)
                     .success(function (data) {
@@ -39,7 +39,7 @@
                 deferred.reject();
             }
             else {
-                var URL = baseurl + url;
+                var URL = appSettings.serverPath + url;
 
                 $http.post(URL, data, headers)
                     .success(function (data) {
@@ -61,7 +61,7 @@
                 deferred.reject();
             }
             else {
-                var URL = baseurl + url;
+                var URL = appSettings.serverPath + url;
 
                 $http.put(URL, data, headers)
                     .success(function (data) {

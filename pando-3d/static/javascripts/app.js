@@ -8,8 +8,6 @@
 
         $routeProvider
             .when('/', {
-                controller: 'MainController',
-                controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/main.html'
             }).when('/projects', {
                 controller: 'ProjectsController',
