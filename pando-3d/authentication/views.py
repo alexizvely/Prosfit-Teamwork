@@ -10,8 +10,6 @@ from django.contrib.auth import logout
 
 
 class LogoutView(views.APIView):
-    print(permissions.IsAuthenticated)
-    permissions.IsAuthenticated + 2
     permission_classes = (permissions.IsAuthenticated,)
 
     def post(self, request, format=None):
