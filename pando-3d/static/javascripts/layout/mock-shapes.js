@@ -1,6 +1,7 @@
 (function() {
     'use strict';
 
+    /// mock objects
     var mockShapes = function mockShapes() {
         var shapes = [
             {
@@ -167,6 +168,6 @@
     };
 
     angular
-        .module('pando3d.services')
+        .module('pando-3d.layout.services')
         .factory('mockShapes', [mockShapes]);
 }());

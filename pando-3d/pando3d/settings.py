@@ -72,7 +72,8 @@ else:
                 'USER': 'pando3duser',
                 'PASSWORD': 'easy_password_for_dev',
                 'HOST': 'localhost',
-                'PORT': '',
+                'PORT': '5434',
+                #'PORT': '',#
                 }
             }
 
