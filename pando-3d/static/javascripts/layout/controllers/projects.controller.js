@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-
     //ProjectsController.$inject = ['$scope', 'Authentication'];
     //
     ///**
