@@ -24,7 +24,8 @@
             }).then(createProjectSuccessFn, createProjectErrorFn);
 
             function createProjectSuccessFn(data, status, headers, config) {
-                console.log('Project created')
+                console.log('Project created');
+                $location.url('/view/project');
             }
 
             function createProjectErrorFn(data, status, headers, config) {
