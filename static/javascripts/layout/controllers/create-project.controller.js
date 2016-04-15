@@ -46,6 +46,12 @@
         //        $scope.$broadcast('rzSliderForceRender');
         //    });
         //};
+
+
+        var s = Snap("#svgout");
+        var cube = Snap.load("Cube.svg", function ( loadedFragment ) {
+            s.append( loadedFragment );
+        } );
     }
 
     angular

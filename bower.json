@@ -25,6 +25,7 @@
     "toastr": "~2.1.2",
     "angular-loading-bar": "~0.9.0",
     "angularjs-slider": "^2.11.0",
-    "tooltip": "tooltip-js#^2.0.1"
+    "tooltip": "tooltip-js#^2.0.1",
+    "Snap.svg": "snap.svg#^0.4.1"
   }
 }
