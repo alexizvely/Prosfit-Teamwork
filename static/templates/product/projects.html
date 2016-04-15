@@ -4,7 +4,7 @@
 <div id="blue">
 	<div class="container">
 		<div class="row">
-			<h3>Projects</h3>
+			<h3 class="animated fadeInDown">Projects</h3>
 		</div><!-- /row -->
 	</div> <!-- /container -->
 </div><!-- /blue -->
@@ -25,7 +25,7 @@
 <!-- *****************************************************************************************************************
  PORTFOLIO SECTION
  ***************************************************************************************************************** -->
-<div id="portfoliowrap">
+<div id="portfoliowrap animated zoomIn">
 	<div class="portfolio-centered">
 		<div class="recentitems portfolio">
 			<div ng-repeat="shape in vm.shapes">
@@ -36,7 +36,7 @@
 						<div class="he-view">
 							<div class="bg a0" data-animate="fadeIn">
 								<h3 class="a1" data-animate="fadeInDown">{{shape.status}}</h3>
-								<a data-rel="prettyPhoto" href="static/img/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-info-circle"></i></a>
+								<a data-rel="prettyPhoto" href="/view/project?id={{shape._id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-info-circle"></i></a>
 								<a href="/create?id={{shape._id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-pencil-square-o"></i></a>
 							</div><!-- he bg -->
 						</div><!-- he view -->

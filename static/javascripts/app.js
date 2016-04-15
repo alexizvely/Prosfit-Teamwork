@@ -14,6 +14,10 @@
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/projects.html'
             }).when('/create', {
+                controller: 'CreateProjectController',
+                controllerAs: CONTROLLER_VIEW_MODEL_NAME,
+                templateUrl: '/static/templates/product/create-project.html'
+            }).when('/view/project', {
                 controller: 'SingleProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/single-project.html'
@@ -56,7 +60,7 @@
     angular.module('pando-3d.authentication.services', []);
     angular.module('pando-3d.authentication.controllers', []);
 
-    angular.module('pando-3d', ['ngRoute', 'ngCookies', 'angular-loading-bar',
+    angular.module('pando-3d', ['ngRoute', 'ngCookies', 'angular-loading-bar', ///'rzModule',
             'pando-3d.authentication',
             'pando-3d.common',
             'pando-3d.layout'])
