@@ -15,7 +15,10 @@
 
 <div class="animated zoomIn" ng-controller="CreateProjectController as vm">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-1">
+        <div class="col-md-6">
+             <img src="static/img/portfolio/portfolio_09.jpg" alt="">
+        </div>
+        <div class="col-md-6">
             <form class="sky-form">
                 <fieldset>
                     <section>
@@ -45,34 +48,40 @@
                         </label>
                     </section>
 
-                    <section>
-                        <label class="label label-default">Dimension X *</label>
-                        <label class="input">
-                            <i class="icon-append fa fa-question-circle"></i>
-                            <input type="text" ng-model="project.dimension_x">
-                            <b class="tooltip tooltip-top-right">Dimension X for your shape</b>
-                        </label>
-                    </section>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <section>
+                                <label class="label label-default">Dimension X *</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-question-circle"></i>
+                                    <input type="text" ng-model="project.dimension_x">
+                                    <b class="tooltip tooltip-top-right">Dimension X for your shape</b>
+                                </label>
+                            </section>
+                        </div>
 
-                    <section>
-                        <label class="label label-default">Dimension Y *</label>
-                        <label class="input">
-                            <i class="icon-append fa fa-question-circle"></i>
-                            <input type="text" ng-model="project.dimension_y">
-                            <b class="tooltip tooltip-top-right">Dimension Y for your shape</b>
-                        </label>
-                    </section>
+                        <div class="col-md-4">
+                            <section>
+                                <label class="label label-default">Dimension Y *</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-question-circle"></i>
+                                    <input type="text" ng-model="project.dimension_y">
+                                    <b class="tooltip tooltip-top-right">Dimension Y for your shape</b>
+                                </label>
+                            </section>
+                        </div>
 
-                    <section>
-                        <label class="label label-default">Dimension Z *</label>
-                        <label class="input">
-                            <i class="icon-append fa fa-question-circle"></i>
-                            <input type="text" ng-model="project.dimension_z">
-                            <b class="tooltip tooltip-top-right">Dimension Z for your shape</b>
-                        </label>
-                    </section>
-
-
+                        <div class="col-md-4">
+                            <section>
+                                <label class="label label-default">Dimension Z *</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-question-circle"></i>
+                                    <input type="text" ng-model="project.dimension_z">
+                                    <b class="tooltip tooltip-top-right">Dimension Z for your shape</b>
+                                </label>
+                            </section>
+                        </div>
+                    </div>
                     <!--<section>-->
                         <!--<label class="label label-default">Used languages and technologies *</label>-->
                         <!--<label class="select select-multiple">-->

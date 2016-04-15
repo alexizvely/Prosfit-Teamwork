@@ -1,0 +1,48 @@
+<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+<div id="blue">
+	<div class="container">
+		<div class="row">
+			<h3 class="animated fadeInDown">Projects</h3>
+		</div><!-- /row -->
+	</div> <!-- /container -->
+</div><!-- /blue -->
+
+<!-- *****************************************************************************************************************
+ TITLE & CONTENT
+ ***************************************************************************************************************** -->
+
+<div class="container mtb">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 centered">
+			<h2>Filters will be here</h2>
+			<br>
+			<div class="hline"></div>
+		</div>
+	</div>
+</div><! --/container -->
+<!-- *****************************************************************************************************************
+ PORTFOLIO SECTION
+ ***************************************************************************************************************** -->
+<div id="portfoliowrap animated zoomIn">
+	<div class="portfolio-centered">
+		<div class="recentitems portfolio">
+			<div ng-repeat="shape in vm.shapes">
+				<div class="portfolio-item">
+					<div class="he-wrap tpl6">
+						<img src="static/img/portfolio/portfolio_09.jpg" alt="">
+						<p>{{shape.shapename}}</p>
+						<div class="he-view">
+							<div class="bg a0" data-animate="fadeIn">
+								<h3 class="a1" data-animate="fadeInDown">{{shape.status}}</h3>
+								<a data-rel="prettyPhoto" href="/view/project?id={{shape._id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-info-circle"></i></a>
+								<a href="/create?id={{shape._id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-pencil-square-o"></i></a>
+							</div><!-- he bg -->
+						</div><!-- he view -->
+					</div><!-- he wrap -->
+				</div><!-- end col-12 -->
+			</div>
+		</div><!-- portfolio -->
+	</div><!-- portfolio container -->
+</div><!--/Portfoliowrap -->
