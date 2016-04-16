@@ -59,6 +59,7 @@
     angular.module('pando-3d.layout.controllers', []);
     angular.module('pando-3d.authentication.services', []);
     angular.module('pando-3d.authentication.controllers', []);
+    angular.module('pando-3d.layout.directives', []);
 
     angular.module('pando-3d', ['ngRoute', 'ngCookies', 'angular-loading-bar', ///'rzModule',
             'pando-3d.authentication',

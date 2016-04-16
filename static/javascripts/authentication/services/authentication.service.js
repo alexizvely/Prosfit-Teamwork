@@ -100,7 +100,6 @@
             if (!$cookies.authenticatedAccount) {
                 return;
             }
-            console.log(JSON.parse($cookies.authenticatedAccount));
             return JSON.parse($cookies.authenticatedAccount);
         }
 
