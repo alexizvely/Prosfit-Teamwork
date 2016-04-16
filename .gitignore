@@ -1,5 +1,9 @@
 # User-specific stuff:
-.idea
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
@@ -35,6 +39,7 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+>>>>>>> 5c9ef594a0bbcc6f7694402b626d18d1e658ea07
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -122,9 +127,6 @@ static/bower_components/
 
 # Uglified JavaScript
 dist/
-
-# Staticfiles
-staticfiles/
 
 
 
