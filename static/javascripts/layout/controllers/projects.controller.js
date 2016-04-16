@@ -14,7 +14,8 @@
 
     var ProjectsController = function ProjectsController(shapesData) {
         var vm = this;
-        vm.shapes = shapesData.getShapes();
+        shapesData.getShapes()
+            .then(x => vm.shapes = x);
     };
 
 

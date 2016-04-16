@@ -37,7 +37,7 @@
                 dimension_x: 250,
                 dimension_y: 325,
                 dimension_z: 500,
-                status: 'manufacturing',
+                status: 'saved',
                 shape_type: 'sphere',
                 comments: [{
                     author: 'Admin',
@@ -89,7 +89,7 @@
                 dimension_x: 250,
                 dimension_y: 325,
                 dimension_z: 500,
-                status: 'manufacturing',
+                status: 'saved',
                 shape_type: 'sphere',
                 comments: [{
                     author: 'Admin',

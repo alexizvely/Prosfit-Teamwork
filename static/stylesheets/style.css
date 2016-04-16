@@ -256,6 +256,11 @@ a:focus {
 	display:block;
 }
 
+.project-item{
+	display: inline-block;
+	width: 35rem;
+}
+
 
 .portfolio-item .title:before {border-radius:0; display:none}
 .portfolio-item p {margin:0 0 30px;}

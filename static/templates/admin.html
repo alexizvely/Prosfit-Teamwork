@@ -16,68 +16,71 @@
 
 	 <div class="container mtb animated zoomIn">
 	 	<div class="row">
-
 	 		<! -- BLOG POSTS LIST -->
 	 		<div class="col-lg-8">
 	 			<! -- Blog Post 1 -->
-        <div class="container-fluid">
-    		 		<p><img class="img-responsive" src="assets/img/post01.jpg"></p>
-            <div class="col-lg-5 col-lg-offset-1">
-              <a href="single-project.html"><h3 class="ctitle">Project Name</h3></a>
-              <p><b>Last interaction: </b> April 18, 2014</p>
-              <p><b>Progress status: </b> Saved</p>
-              <p><b>Author: </b> Marcel Newman</p>
-              <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
-            </div>
+				<div id="" ng-repeat="shape in vm.shapes | filter : {shapename: vm.searchString, status: vm.selectedCategory}">
+					<div class="container-fluid">
+								<p><img class="img-responsive" src="assets/img/post01.jpg"></p>
+						<div class="col-lg-5 col-lg-offset-1">
+						  <a href="single-project.html"><h3 class="ctitle">{{shape.shapename}}</h3></a>
+						  <p><b>Last interaction: </b> April 18, 2014</p>
+						  <p><b>Progress status: </b> Saved</p>
+						  <p><b>Author: </b> Marcel Newman</p>
+						  <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
+						</div>
 
-            <div class="col-lg-5 col-lg-offset-1">
-            <p><a href="#" class="btn btn-theme btn-lg">Review</a></p>
-            <p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>
-            </div>
-        </div>
-		 		<div class="hline"></div>
+						<div class="col-lg-5 col-lg-offset-1">
+						<p><a href="#" class="btn btn-theme btn-lg">Review</a></p>
+						<p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>
+						</div>
+					</div>
+					<div class="hline"></div>
 
-		 		<div class="spacing"></div>
+					<div class="spacing"></div>
+				</div>
+
+				<div ng-show="vm.shapes.length == 0">Nothing</div>
 
 	 			<! -- Blog Post 2 -->
-        <div class="container-fluid">
-  		 		<p><img class="img-responsive" src="assets/img/post02.jpg"></p>
-          <div class="col-lg-5 col-lg-offset-1">
-            <a href="single-project.html"><h3 class="ctitle">Project Name</h3></a>
-            <p><b>Last interaction: </b> April 18, 2014</p>
-            <p><b>Progress status: </b> Saved</p>
-            <p><b>Author: </b> Marcel Newman</p>
-            <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
-          </div>
+				<!--<div class="container-fluid">-->
+					<!--<p><img class="img-responsive" src="assets/img/post02.jpg"></p>-->
+				  <!--<div class="col-lg-5 col-lg-offset-1">-->
+					<!--<a href="single-project.html"><h3 class="ctitle">Project Name</h3></a>-->
+					<!--<p><b>Last interaction: </b> April 18, 2014</p>-->
+					<!--<p><b>Progress status: </b> Saved</p>-->
+					<!--<p><b>Author: </b> Marcel Newman</p>-->
+					<!--<p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>-->
+				  <!--</div>-->
 
-          <div class="col-lg-5 col-lg-offset-1">
-          <p><a href="#" class="btn btn-theme btn-lg">Review</a></p>
-          <p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>
-          </div>
-        </div>
-		 		<div class="hline"></div>
+				  <!--<div class="col-lg-5 col-lg-offset-1">-->
+				  <!--<p><a href="#" class="btn btn-theme btn-lg">Review</a></p>-->
+				  <!--<p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>-->
+				  <!--</div>-->
+				<!--</div>-->
+		 		<!--<div class="hline"></div>-->
 
-		 		<div class="spacing"></div>
+		 		<!--<div class="spacing"></div>-->
 
-	 			<! -- Blog Post 3 -->
-        <div class="container-fluid">
-            <p><img class="img-responsive" src="assets/img/post03.jpg"></p>
-            <div class="col-lg-5 col-lg-offset-1">
-              <a href="single-project.html"><h3 class="ctitle">Project Name</h3></a>
-              <p><b>Last interaction: </b> April 18, 2014</p>
-              <p><b>Progress status: </b> Saved</p>
-              <p><b>Author: </b> Marcel Newman</p>
-              <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
-            </div>
+	 			<!--<! &#45;&#45; Blog Post 3 &ndash;&gt;-->
+        <!--<div class="container-fluid">-->
+            <!--<p><img class="img-responsive" src="assets/img/post03.jpg"></p>-->
+            <!--<div class="col-lg-5 col-lg-offset-1">-->
+              <!--<a href="single-project.html"><h3 class="ctitle">Project Name</h3></a>-->
+              <!--<p><b>Last interaction: </b> April 18, 2014</p>-->
+              <!--<p><b>Progress status: </b> Saved</p>-->
+              <!--<p><b>Author: </b> Marcel Newman</p>-->
+              <!--<p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>-->
+            <!--</div>-->
 
-            <div class="col-lg-5 col-lg-offset-1">
-            <p><a href="#" class="btn btn-theme btn-lg">Review</a></p>
-            <p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>
-            </div>
-        </div>
-		 		<div class="hline"></div>
+            <!--<div class="col-lg-5 col-lg-offset-1">-->
+            <!--<p><a href="#" class="btn btn-theme btn-lg">Review</a></p>-->
+            <!--<p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>-->
+            <!--</div>-->
+        <!--</div>-->
+		 		<!--<div class="hline"></div>-->
 
-			</div><! --/col-lg-8 -->
+			</div><!--/col-lg-8 -->
 
 
 	 		<! -- SIDEBAR -->
@@ -86,19 +89,23 @@
 		 		<div class="hline"></div>
 		 			<p>
 		 				<br/>
-		 				<input type="text" class="form-control" placeholder="Search for a project">
+		 				<input type="text" class="form-control" placeholder="Search for a project" ng-model="vm.searchString">
 		 			</p>
 
 		 		<div class="spacing"></div>
 
 		 		<h4>Categories</h4>
 		 		<div class="hline"></div>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Waiting Admin’s approval</a> <span class="badge badge-theme pull-right">9</span></p>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Saved</a> <span class="badge badge-theme pull-right">3</span></p>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Returned for improvements</a> <span class="badge badge-theme pull-right">11</span></p>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Manufactured</a> <span class="badge badge-theme pull-right">5</span></p>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Confirmed for Manufacturing </a> <span class="badge badge-theme pull-right">7</span></p>
-			 		<p><a href="#"><i class="fa fa-angle-right"></i> Sent for Manufacturing</a> <span class="badge badge-theme pull-right">12</span></p>
+			 		<p ng-repeat="item in vm.countByCategory" ng-click="vm.selectCategory(item.name)">
+						<a href="#"><i class="fa fa-angle-right"></i> {{item.name}}</a> <span class="badge badge-theme pull-right">{{item.count}}</span>
+					</p>
+
+				<!---->
+			 		<!--<p><a href="#"><i class="fa fa-angle-right"></i> Saved</a> <span class="badge badge-theme pull-right">3</span></p>-->
+			 		<!--<p><a href="#"><i class="fa fa-angle-right"></i> Returned for improvements</a> <span class="badge badge-theme pull-right">11</span></p>-->
+			 		<!--<p><a href="#"><i class="fa fa-angle-right"></i> Manufactured</a> <span class="badge badge-theme pull-right">5</span></p>-->
+			 		<!--<p><a href="#"><i class="fa fa-angle-right"></i> Confirmed for Manufacturing </a> <span class="badge badge-theme pull-right">7</span></p>-->
+			 		<!--<p><a href="#"><i class="fa fa-angle-right"></i> Sent for Manufacturing</a> <span class="badge badge-theme pull-right">12</span></p>-->
 
 		 		<div class="spacing"></div>
 
