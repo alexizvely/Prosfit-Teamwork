@@ -64,7 +64,8 @@
     angular.module('pando-3d', ['ngRoute', 'ngCookies', 'angular-loading-bar', ///'rzModule',
             'pando-3d.authentication',
             'pando-3d.common',
-            'pando-3d.layout'])
+            'pando-3d.layout',
+            'pando-3d.layout.services'])
         .config(['$routeProvider', '$locationProvider', config]) //'$httpProvider',
         .run(['$http', '$rootScope', '$location', 'Authentication', 'notifier', run])
         .value('jQuery', jQuery)

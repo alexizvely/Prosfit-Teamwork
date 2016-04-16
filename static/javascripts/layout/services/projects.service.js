@@ -1,34 +1,26 @@
 (function() {
     'use strict';
 
-    angular
-        .module('pando-3d.layout.services')
-        .factory('Projects', Projects);
+    var Projects = function Projects($cookies, $http) {
 
-    Projects.$inject = ['$cookies', '$http'];
+        var categories = [
+            'saved',
+            'sentForManufacturing',
+            'waitingAdminApproval',
+            'returnedForImprovements',
+            'manufacturing'
+        ];
 
-    /**
-     * @namespace Projects
-     * @returns {Factory}
-     */
-    function Projects($cookies, $http) {
-        /**
-         * @name Projects
-         * @desc The Factory to be returned
-         */
-        var Projects = {
-            //getAuthenticatedAccount: getAuthenticatedAccount,
-            //isAuthenticated: isAuthenticated,
-            //login: login,
-            //register: register,
-            //logout: logout,
-            //setAuthenticatedAccount: setAuthenticatedAccount,
-            //unauthenticate: unauthenticate
+        var getCategories = function() {
+            return Promise.resolve(categories);
         };
 
-        return Projects;
-
-
+        return {
+            getCategories: getCategories
+        };
     }
 
+    angular
+        .module('pando-3d.layout.services')
+        .factory('Projects', ['$cookies', '$http', Projects]);
 })();
