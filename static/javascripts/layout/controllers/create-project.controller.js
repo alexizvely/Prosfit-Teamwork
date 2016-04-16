@@ -11,16 +11,16 @@
 
         vm.submitProject = submitProject;
 
-        function submitProject(project, userid) {
+        function submitProject(project) {
             return $http.post('/api/v1/projects/', {
-                    shapename: project.shapename,
-                    color: project.color,
+                    author: Authentication.getAuthenticatedAccount().id,
+                    name: project.shapename,
+                    shape_type: project.shape_type,
                     dimension_x: project.dimension_x,
                     dimension_y: project.dimension_y,
                     dimension_z: project.dimension_z,
+                    color: project.color,
                     status: 'saved',
-                    shape_type: project.shape_type,
-                    author_id: userid,
             }).then(createProjectSuccessFn, createProjectErrorFn);
 
             function createProjectSuccessFn(data, status, headers, config) {
