@@ -12,10 +12,12 @@
     //
     //}
 
-    var ProjectsController = function ProjectsController(shapesData) {
+    var ProjectsController = function ProjectsController($scope, Authentication, shapesData) {
         var vm = this;
         shapesData.getShapes()
-            .then(x => vm.shapes = x);
+            .then(function(data){
+                vm.shapes = data;
+            });
     };
 
 
@@ -24,5 +26,5 @@
     //    .controller('ProjectsController', ProjectsController);
     angular
         .module('pando-3d.layout.controllers')
-        .controller('ProjectsController', ['shapesData', ProjectsController]);
+        .controller('ProjectsController', ['$scope', 'Authentication', 'shapesData', ProjectsController]);
 }());
