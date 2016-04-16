@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     CreateProjectController.$inject = ['$location', '$scope', '$http', 'Authentication'];
@@ -13,14 +13,14 @@
 
         function submitProject(project) {
             return $http.post('/api/v1/projects/', {
-                    author: Authentication.getAuthenticatedAccount().id,
-                    name: project.shapename,
-                    shape_type: project.shape_type,
-                    dimension_x: project.dimension_x,
-                    dimension_y: project.dimension_y,
-                    dimension_z: project.dimension_z,
-                    color: project.color,
-                    status: 'saved',
+                author: Authentication.getAuthenticatedAccount().id,
+                name: project.shapename,
+                shape_type: project.shape_type,
+                dimension_x: project.dimension_x,
+                dimension_y: project.dimension_y,
+                dimension_z: project.dimension_z,
+                color: project.color,
+                status: 'saved',
             }).then(createProjectSuccessFn, createProjectErrorFn);
 
             function createProjectSuccessFn(data, status, headers, config) {
@@ -49,9 +49,9 @@
 
 
         var s = Snap("#svgout");
-        var cube = Snap.load("Cube.svg", function ( loadedFragment ) {
-            s.append( loadedFragment );
-        } );
+        var cube = Snap.load("Cube.svg", function(loadedFragment) {
+            s.append(loadedFragment);
+        });
     }
 
     angular
