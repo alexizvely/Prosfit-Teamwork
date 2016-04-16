@@ -127,7 +127,4 @@ static/bower_components/
 # Uglified JavaScript
 dist/
 
-# Staticfiles
-staticfiles/
-
 
