@@ -9,7 +9,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
 
-        fields = ('id', 'name', 'shape_type', 'dimension_x', 'dimension_y', 'dimension_z', 'color', 'status')
+        fields = ('id', 'name', 'shape_type', 'dimension_x', 'dimension_y', 'dimension_z', 'color', 'status', 'author')
 
     def get_validation_exclusions(self, *args, **kwargs):
         exclusions = super(PostSerializer, self).get_validation_exclusions()

@@ -16,10 +16,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
             return (permissions.AllowAny(),)
         return (permissions.IsAuthenticated(), IsAuthorOfProject(),)
 
-def perform_create(self, serializer):
-    instance = serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        print('Here')
+        instance = serializer.save(author=self.request.user)
 
-    return super(ProjectViewSet, self).perform_create(serializer)
+        return super(ProjectViewSet, self).perform_create(serializer)
 
 
 class AccountProjectsViewSet(viewsets.ViewSet):
