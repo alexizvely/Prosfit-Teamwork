@@ -2,7 +2,7 @@ from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 
 from models import Project
-from permissions import IsAuthorOfProject
+from permissions import IsAuthorOfProject, IsAdminUser
 from serializers import ProjectSerializer
 
 # Create your views here.
@@ -12,12 +12,12 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
 
     def get_permissions(self):
-        if self.request.method in permissions.SAFE_METHODS:
+        if self.request.user.is_staff:
+            print("In Admin")
             return (permissions.AllowAny(),)
         return (permissions.IsAuthenticated(), IsAuthorOfProject(),)
 
     def perform_create(self, serializer):
-        print('Here')
         instance = serializer.save(author=self.request.user)
 
         return super(ProjectViewSet, self).perform_create(serializer)
