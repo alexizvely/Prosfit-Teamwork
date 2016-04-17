@@ -7,7 +7,7 @@
             {
             _id: 'something',
             shapename: 'Name',
-            color: 'ff55ff',
+            color: 'red',
             dimension_x: 250,
             dimension_y: 325,
             dimension_z: 500,
@@ -59,7 +59,7 @@
             {
                 _id: 'something',
                 shapename: 'Name2',
-                color: 'ff55ff',
+                color: 'blue',
                 dimension_x: 250,
                 dimension_y: 325,
                 dimension_z: 500,
@@ -111,7 +111,7 @@
             {
                 _id: 'something',
                 shapename: 'Name4',
-                color: 'ff55ff',
+                color: 'yellow',
                 dimension_x: 250,
                 dimension_y: 325,
                 dimension_z: 500,
@@ -137,7 +137,7 @@
             {
                 _id: 'something',
                 shapename: 'Name5',
-                color: 'ff55ff',
+                color: 'black',
                 dimension_x: 250,
                 dimension_y: 325,
                 dimension_z: 500,
