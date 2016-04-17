@@ -1,30 +1,42 @@
 (function () {
     'use strict';
 
-    //ProjectsController.$inject = ['$scope', 'Authentication'];
-    //
-    ///**
-    // * @namespace ProjectsController
-    // */
-    //function ProjectsController($scope, Authentication) {
-    //    var vm = this;
-    //
-    //
-    //}
-
-    var ProjectsController = function ProjectsController($scope, Authentication, shapesData) {
+    var ProjectsController = function ProjectsController($scope, Authentication, shapesData, Projects) {
         var vm = this;
         shapesData.getShapes()
             .then(function(data){
                 vm.shapes = data;
             });
+
+
+        vm.selectedCategory = '';
+        vm.searchString = '';
+        vm.countByCategory = [];
+
+        Projects.getCategories()
+            .then(function(categories){
+                for (var i = 0; i < categories.length; i++) {
+                    var categoryModel = {
+                        name: categories[i],
+                        count: vm.shapes.filter(function(project) {
+                            return project.status == categories[i]
+                        }).length
+                    }
+
+                    vm.countByCategory.push(categoryModel);
+                }
+            });
+
+        vm.selectCategory = function(name) {
+            if(vm.selectedCategory == name) {
+                vm.selectedCategory = '';
+            } else {
+                vm.selectedCategory = name;
+            }
+        };
     };
 
-
-    //angular
-    //    .module('pando-3d.layout.controllers')
-    //    .controller('ProjectsController', ProjectsController);
     angular
         .module('pando-3d.layout.controllers')
-        .controller('ProjectsController', ['$scope', 'Authentication', 'shapesData', ProjectsController]);
+        .controller('ProjectsController', ['$scope', 'Authentication', 'shapesData', 'Projects', ProjectsController]);
 }());
