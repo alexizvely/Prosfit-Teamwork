@@ -4,7 +4,7 @@
     /// dummy service to use with the mock objects
     var shapesData = function shapesData(mockShapes) {
         function getShapes() {
-            return mockShapes.shapes;
+            return Promise.resolve(mockShapes.shapes);
         }
 
         return {
