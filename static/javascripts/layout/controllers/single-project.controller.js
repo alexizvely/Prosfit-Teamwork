@@ -1,27 +1,15 @@
 (function () {
     'use strict';
 
-    //SingleProjectController.$inject = ['$scope', 'Authentication'];
-    //
-    ///**
-    // * @namespace SingleProjectController
-    // */
-    //function SingleProjectController($scope, Authentication) {
-    //    var vm = this;
-    //
-    //
-    //}
-
-    var SingleProjectController = function SingleProjectController(mockSingleShape) {
+    var SingleProjectController = function SingleProjectController($scope, Authentication, singleShapesData, Projects) {
         var vm = this;
-        vm.shapes = mockSingleShape.getShape();
+        singleShapesData.getShape()
+            .then(function(data){
+                vm.shapes = data;
+            });
     };
 
-
-    //angular
-    //    .module('pando-3d.layout.controllers')
-    //    .controller('SingleProjectController', SingleProjectController);
     angular
         .module('pando-3d.layout.controllers')
-        .controller('SingleProjectController', ['mockSingleShape', SingleProjectController]);
+        .controller('SingleProjectController', ['$scope', 'Authentication', 'singleShapesData', 'Projects', SingleProjectController]);
 }());
