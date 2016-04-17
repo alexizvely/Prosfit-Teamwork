@@ -5,7 +5,8 @@
         var vm = this;
         singleShapesData.getShape()
             .then(function(data){
-                vm.shapes = data;
+                console.log(data);
+                vm.shape = data.data;
             });
     };
 

@@ -5,8 +5,9 @@
         var vm = this;
         shapesData.getShapes()
             .then(function(data){
-                console.log(data);
-                vm.shapes = data;
+                console.log(data.data);
+                    vm.shapes = data.data;
+                console.log(vm.shapes);
             });
 
 
