@@ -9,7 +9,7 @@
 
         shapesData.getShapes()
             .then(function(shapes) {
-                vm.shapes = shapes;
+                vm.shapes = shapes.data;
             });
 
         Projects.getCategories()
