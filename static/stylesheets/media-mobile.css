@@ -4,6 +4,15 @@
         left:8rem;
         top:1rem;
     }
+    #pc-login{
+        display: none;
+    }
+    #mobile-login{
+        display: inline;
+    }
+    #mobile-reg{
+        display: inline;
+    }
 }
 
 /*mobile phones*/
@@ -22,5 +31,14 @@
     }
     .navbar-toggle {
         margin-right: 3rem;
+    }
+    #pc-login{
+        display: none;
+    }
+    #mobile-login{
+        display: inline;
+    }
+    #mobile-reg{
+        display: inline;
     }
 }

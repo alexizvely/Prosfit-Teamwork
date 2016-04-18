@@ -477,3 +477,13 @@ LOGIN DROP-DOWN
 	color: rgba(231, 231, 231,.8);
 }
 
+#pc-login{
+	display: inline;
+}
+#mobile-login{
+	display: none;
+}
+#mobile-reg{
+	display: none;
+}
+

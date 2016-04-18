@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
         <h1>Login</h1>
-        <div class="well">
+        <div class="well" ng-controller="LoginController as vm">
             <form role="form" ng-submit="vm.login()">
                 <div class="alert alert-danger" ng-show="error" ng-bind="error"></div>
                 <div class="form-group">
@@ -13,7 +13,7 @@
                     <input type="password" class="form-control" id="login__password" ng-model="vm.password" placeholder="ex. thisisnotgoogleplus" />
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" ng-click="vm.Activate()">Submit</button>
                 </div>
             </form>
         </div>

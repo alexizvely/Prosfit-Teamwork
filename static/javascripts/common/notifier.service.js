@@ -2,9 +2,21 @@
     'use strict';
 
     var notifierService = function notifierService(toastr) {
-        toastr.options.positionClass = 'toast-top-center';
+        toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "positionClass": "toast-top-full-width",
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "30000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+        }
         toastr.options.preventDuplicates = true;
-        toastr.options.closeButton = true;
 
         return {
             success: function (msg) {
