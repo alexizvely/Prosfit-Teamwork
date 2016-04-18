@@ -3,7 +3,6 @@
 
     var ProjectsController = function ProjectsController($scope, Authentication, shapesData, Projects) {
         var vm = this;
-
         vm.selectedCategory = '';
         vm.searchString = '';
         vm.countByCategory = [];
