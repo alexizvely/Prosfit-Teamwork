@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     var config = function config($routeProvider, $locationProvider, $httpProvider, routeResolversProvider) {
@@ -13,11 +13,11 @@
                 controller: 'ProjectsController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/projects.html'
-            }).when('/create', {
+            }).when('/create/:id', {
                 controller: 'CreateProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/create-project.html'
-            }).when('/view/project', {
+            }).when('/view/project/:id', {
                 controller: 'SingleProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/single-project.html'
@@ -36,7 +36,7 @@
             }).when('/user', {
                 templateUrl: '/static/templates/user.html'
             }).when('/notfound', {
-                    templateUrl: '/static/templates/404.html'
+                templateUrl: '/static/templates/404.html'
             }).otherwise({ redirectTo: '/notfound' });
 
         //$httpProvider.interceptors.push('httpResponseInterceptor');
@@ -45,7 +45,7 @@
     var run = function run($http, $rootScope, $location, Authentication, notifier) {
         $http.defaults.xsrfHeaderName = 'X-CSRFToken';
         $http.defaults.xsrfCookieName = 'csrftoken';
-        $rootScope.$on('$routeChangeError', function (ev, current, previous, rejection) {
+        $rootScope.$on('$routeChangeError', function(ev, current, previous, rejection) {
             if (rejection === 'not authorized') {
                 notifier.warning('Please log into your account first!');
                 $location.path('/');
@@ -65,7 +65,8 @@
             'pando-3d.authentication',
             'pando-3d.common',
             'pando-3d.layout',
-            'pando-3d.layout.services'])
+            'pando-3d.layout.services'
+        ])
         .config(['$routeProvider', '$locationProvider', config]) //'$httpProvider',
         .run(['$http', '$rootScope', '$location', 'Authentication', 'notifier', run])
         .value('jQuery', jQuery)
