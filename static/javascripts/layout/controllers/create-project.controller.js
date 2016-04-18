@@ -8,8 +8,21 @@
      */
     function CreateProjectController($location, $scope, $http, Authentication, notifier) {
         var vm = this;
-
+        var color = '';
         vm.submitProject = submitProject;
+
+
+        $(function() {
+            $('#cp1').colorpicker({
+                format: 'hex'
+            });
+        });
+
+        $('#cp1').colorpicker().on('changeColor', function(ev){
+            color = ev.color.toHex();
+            drawCuboid(100, 100, 100, color);
+        });
+
         var divContainer = $('#svg-container');
         //var s = Snap('#svg');
 
@@ -27,7 +40,7 @@
 
         ///////////////////////////////////CUBOID///////////////////////
 
-        function drawCuboid(width, height, depth){
+        function drawCuboid(width, height, depth, color){
             var draw = SVG('svg').size(300, 300)
 
             var w = width
@@ -37,7 +50,7 @@
             var startX = 150;
             var startY = 150;
 
-            var color = 'pink';
+            var color = color;
 
             function generatePoints(x,y,w,h,d) {
                 var points = [];
@@ -146,7 +159,7 @@
             }
         }
 
-        drawCuboid(100, 100, 100);
+        drawCuboid(100, 100, 100, color);
 
         sendFileToServer();
 

@@ -29,6 +29,6 @@
     "Snap.svg": "snap.svg#^0.4.1",
     "es6-shim": "^0.35.0",
     "fileapi": "FileAPI#^2.0.20",
-    "ng-if-bootstrap": "^0.1.1"
+    "mjolnic-bootstrap-colorpicker": "bootstrap-colorpicker#^2.3.3"
   }
 }
