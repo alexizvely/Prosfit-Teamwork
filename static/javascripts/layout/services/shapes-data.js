@@ -1,11 +1,11 @@
-(function () {
+(function() {
     'use strict';
 
     /// dummy service to use with the mock objects
-    var shapesData = function shapesData($http) {
-            function getShapes() {
-                return $http.get('/api/v1/projects/')
-            .then(getProjectSuccessFn, getProjectErrorFn);
+    var shapesData = function shapesData($http, Authentication) {
+        function getShapes() {
+            return $http.get('/api/v1/accounts/' + Authentication.getAuthenticatedAccount().username + '/projects/')
+                .then(getProjectSuccessFn, getProjectErrorFn);
 
             function getProjectSuccessFn(data, status, headers, config) {
                 return data;
@@ -25,5 +25,5 @@
     };
 
     angular.module('pando-3d.layout.services')
-        .factory('shapesData', ['$http', shapesData]);
+        .factory('shapesData', ['$http', 'Authentication', shapesData]);
 }());
