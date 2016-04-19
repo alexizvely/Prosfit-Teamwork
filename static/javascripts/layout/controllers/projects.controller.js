@@ -16,7 +16,6 @@
                 return Projects.getCategories();
             })
             .then(function(categories) {
-                console.log(vm);
                 for (var i = 0; i < categories.length; i++) {
                     var categoryModel = {
                         name: categories[i],

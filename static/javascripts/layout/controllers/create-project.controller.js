@@ -6,9 +6,10 @@
     function CreateProjectController($location, $scope, $http, Authentication, notifier) {
         var vm = this;
         var color = '#e2a7f7'; //initial value
-        var width = 50; //initial value
+        var width = 150; //initial value
         var height = 50; //initial value
-        var depth = 50; //initial value
+        var depth = 100; //initial value
+        var selectedFigure = "cu" //initial value
         var widthMinValue = 50;
         var widthMaxValue = 350;
         var heightMinValue = 50;
@@ -24,16 +25,33 @@
             });
         });
 
+        $("input[name=shapeType]:radio").change(function () {
+            var val = $(this).val();
+            if(val == 'Cuboid'){
+                selectedFigure = 'po';
+                $("#svg").html("");
+                drawFigure(width, height, depth, color, selectedFigure);
+            } else if (val == 'Sphere') {
+                selectedFigure = 'sp';
+                $("#svg").html("");
+                drawFigure(width, height, depth, color, selectedFigure);
+            } else if (val == 'Cube') {
+                selectedFigure = 'cu';
+                $("#svg").html("");
+                drawFigure(width, height, depth, color, selectedFigure);
+            }
+        });
+
         $('#cp1').colorpicker().on('changeColor', function(ev){
             color = ev.color.toHex();
-            drawCuboid(width, height, depth, color);
+            drawFigure(width, height, depth, color, selectedFigure);
         });
 
         function changeWidth(){
             width = Number($('#dim-x').val());
             if(width >= widthMinValue && width <= widthMaxValue){
                 $("#svg").html("");
-                drawCuboid(width, height, depth, color);
+                drawFigure(width, height, depth, color, selectedFigure);
             }
         }
 
@@ -41,7 +59,7 @@
             height = Number($('#dim-y').val());
             if(height >= heightMinValue && height <= heightMaxValue) {
                 $("#svg").html("");
-                drawCuboid(width, height, depth, color);
+                drawFigure(width, height, depth, color, selectedFigure);
             }
         }
 
@@ -49,69 +67,79 @@
             depth = Number($('#dim-z').val());
             if(depth >= depthMinValue && depth <= depthMaxValue) {
                 $("#svg").html("");
-                drawCuboid(width, height, depth, color);
+                drawFigure(width, height, depth, color, selectedFigure);
             }
         }
 
-        $("#dim-x").bind('keyup mouseup', function () {
+        var dimXField = $("#dim-x");
+        var dimYField = $("#dim-y");
+        var dimZField = $("#dim-z");
+
+        dimXField.bind('keyup mouseup', function () {
             changeWidth();
         });
 
-        $("#dim-y").bind('keyup mouseup', function () {
+        dimYField.bind('keyup mouseup', function () {
             changeHeight();
         });
 
-        $("#dim-z").bind('keyup mouseup', function () {
+        dimZField.bind('keyup mouseup', function () {
             changeDepth();
         });
 
-        $('#dim-x').on('mouseup change',function(e){
+        dimXField.on('mouseup change',function(e){
             changeWidth();
         });
 
-        $('#dim-y').on('mouseup change',function(e){
+        dimYField.on('mouseup change',function(e){
             changeHeight();
         });
 
-        $('#dim-z').on('mouseup change',function(e){
+        dimZField.on('mouseup change',function(e){
             changeDepth();
         });
 
-        $('#dim-x').on('keyup input',function(e){
+        dimXField.on('keyup input',function(e){
             changeWidth();
         });
 
-        $('#dim-y').on('keyup input',function(e){
+        dimYField.on('keyup input',function(e){
             changeHeight();
         });
 
-        $('#dim-z').on('keyup input',function(e){
+        dimZField.on('keyup input',function(e){
             changeDepth();
         });
 
-        var divContainer = $('#svg-container');
-        //var s = Snap('#svg');
+        // drawCuboid(width, height, depth, color);
 
-        //rect(x,y,width,height,rx,ry)
-        //var rect = s.rect(100,100,120,100,0,0).attr({ stroke: '#123456', 'strokeWidth': 2, fill: 'red', 'opacity': 0.2 });
-        //var rect1 = s.rect(100,100,120,100,0,0).attr({ stroke: '#123456', 'strokeWidth': 2, fill: 'red', 'opacity': 0.2 });
-        // translate(100, 250) scale(2, 1)
-        //rect.transform( 't100,250, S2,1');
-        //circle(cx, cy, r)
-        //var circle = s.circle(50, 50, 40).attr({ stroke: '#123456', 'strokeWidth': 2, fill: 'red', 'opacity': 0.2});
-        //
-        //var file = '<?xml version=\"1.0\" standalone=\"no\"?>\r\n<!DOCTYPE svg PUBLIC \"-\/\/W3C\/\/DTD SVG 1.1\/\/EN\"\r\n \"http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd\">\r\n <svg width=\"100%\" height=\"100%\"' + divContainer.children().html()+'<\/svg>';
-        //console.log(file);
+        // sendFileToServer();
 
+        function drawFigure(width, height, depth, color, selectedFigure){
+            switch(selectedFigure) {
+                case 'cu':
+                    drawCuboid(width, width, width, color);
+                    break;
+                case 'po':
+                    drawCuboid(width, height, depth, color);
+                    break;
+                case 'sp':
+                    var draw = SVG('svg').size(400, 400);
+                    draw.circle(width);
+                    break;
+                default:
+                    drawCuboid(width,  height, depth, color);
+            }
+        }
 
         ///////////////////////////////////CUBOID///////////////////////
 
         function drawCuboid(width, height, depth, color){
-            var draw = SVG('svg').size(400, 400)
+            var draw = SVG('svg').size(400, 400);
 
-            var w = width
-            var h = height
-            var d = depth
+            var w = width;
+            var h = height;
+            var d = depth;
 
             var startX = 30;
             var startY = 30;
@@ -197,7 +225,6 @@
             //};
             //myReader.readAsText(blob);
 
-
             request.send(formData);
 
             request.onreadystatechange = function (oEvent) {
@@ -206,8 +233,8 @@
                         console.log(request.responseText)
                         onSuccess();
                     } else {
-                        onError();
                         console.log("Error", request.statusText);
+                        onError();
                     }
                 }
             };
@@ -223,16 +250,21 @@
             }
         }
 
-        drawCuboid(width, height, depth, color);
-
-        sendFileToServer();
-
         function submitProject(project) {
             color = $('#cp1').val().substring(1);
+            selectedFigure = $("input[name=shapeType]:radio").val();
+            var valueFigureForServer = '';
+            if(selectedFigure == 'Cube'){
+                valueFigureForServer = 'cu';
+            }else if(selectedFigure == 'Cuboid'){
+                valueFigureForServer = 'po';
+            }else{
+                valueFigureForServer = 'sp';
+            }
             return $http.post('/api/v1/projects/', {
                     author: Authentication.getAuthenticatedAccount().id,
                     name: project.shapename,
-                    shape_type: project.shape_type,
+                    shape_type: valueFigureForServer,
                     dimension_x: project.dimension_x,
                     dimension_y: project.dimension_y,
                     dimension_z: project.dimension_z,
