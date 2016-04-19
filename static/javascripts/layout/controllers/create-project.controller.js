@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    CreateProjectController.$inject = ['$location', '$scope', '$http', 'Authentication', 'notifier'];
+    CreateProjectController.$inject = ['$location', '$scope', '$http', '$cookies', 'Authentication', 'notifier'];
 
-    function CreateProjectController($location, $scope, $http, Authentication, notifier) {
+    function CreateProjectController($location, $scope, $http, $cookies, Authentication, notifier) {
         var vm = this;
         var color = '#e2a7f7'; //initial value
         var width = 150; //initial value
@@ -16,6 +16,8 @@
         var heightMaxValue = 350;
         var depthMinValue = 50;
         var depthMaxValue = 350;
+
+        var divContainer = $('#svg-container');
 
         vm.submitProject = submitProject;
 
@@ -113,7 +115,7 @@
 
         // drawCuboid(width, height, depth, color);
 
-        // sendFileToServer();
+        //sendFileToServer();
 
         function drawFigure(width, height, depth, color, selectedFigure){
             switch(selectedFigure) {
@@ -203,24 +205,34 @@
             drawFigure(draw, edges);
         }
 
-        function sendFileToServer(){
-            var divContainer = $('#svg-container');
+        function sendFileToServer(shape_type, dimension_x, dimension_y, dimension_z, color, status, svgText, name){
             var svgsomething = divContainer.children().html();
 
             var formData = new FormData();
             var blob = new Blob([String(svgsomething)], {type: 'plain/text'});
-            formData.append('file', blob, "pic1.svg");
+            formData.append('file', blob, name + ".svg");
+            formData.append('author', Authentication.getAuthenticatedAccount().id);
+            formData.append('shape_type', shape_type);
+            formData.append('dimension_x', dimension_x);
+            formData.append('dimension_y', dimension_y);
+            formData.append('dimension_z', dimension_z);
+            formData.append('color', color);
+            formData.append('status', status);
+            formData.append('svgText', svgText);
+            formData.append('name', name);
 
             var request = new XMLHttpRequest();
             request.open("POST", "/api/v1/projects/");
+            request.setRequestHeader('X-CSRFToken',$cookies.csrftoken);
             //////Console log the request
             //for(var pair of formData.entries()) {
             //    console.log(pair[0]+ ', '+ pair[1].value);
             //}
-            //
-            //
             //var myReader = new FileReader();
             //myReader.onload = function(event){
+            //    console.log(result);
+            //    console.log(myReader.result);
+            //    console.log(JSON.parse(myReader.result));
             //    console.log(JSON.stringify(myReader.result));
             //};
             //myReader.readAsText(blob);
@@ -250,7 +262,14 @@
             }
         }
 
+        function htmlEntitiesEscape(str) {
+            return String(str).replace(/</g, '&lt;');
+        }
+
         function submitProject(project) {
+            var svgText = '<?xml version=\"1.0\" standalone=\"no\"?>\r\n<!DOCTYPE svg PUBLIC \"-\/\/W3C\/\/DTD SVG 1.1\/\/EN\"\r\n \"http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd\">\r\n <svg width=\"100%\" height=\"100%\"' + divContainer.children().html()+'<\/svg>';
+            svgText = htmlEntitiesEscape(svgText);
+
             color = $('#cp1').val().substring(1);
             selectedFigure = $("input[name=shapeType]:radio").val();
             var valueFigureForServer = '';
@@ -261,28 +280,30 @@
             }else{
                 valueFigureForServer = 'sp';
             }
-            return $http.post('/api/v1/projects/', {
-                    author: Authentication.getAuthenticatedAccount().id,
-                    name: project.shapename,
-                    shape_type: valueFigureForServer,
-                    dimension_x: project.dimension_x,
-                    dimension_y: project.dimension_y,
-                    dimension_z: project.dimension_z,
-                    color: color,
-                    status: 'saved',
-            }).then(createProjectSuccessFn, createProjectErrorFn);
-
-            function createProjectSuccessFn(data, status, headers, config) {
-                console.log('Project created');
-                $location.url('/view/project');
-            }
-
-            function createProjectErrorFn(data, status, headers, config) {
-                console.error(data);
-                console.error(status);
-                console.error(headers);
-                console.error(config);
-            }
+            sendFileToServer(valueFigureForServer, project.dimension_x, project.dimension_y, project.dimension_z, color, 'saved', svgText, project.shapename);
+            //return $http.post('/api/v1/projects/', {
+            //        author: Authentication.getAuthenticatedAccount().id,
+            //        name: project.shapename,
+            //        shape_type: valueFigureForServer,
+            //        dimension_x: project.dimension_x,
+            //        dimension_y: project.dimension_y,
+            //        dimension_z: project.dimension_z,
+            //        color: color,
+            //        status: 'saved',
+            //        svgText: svgText,
+            //}).then(createProjectSuccessFn, createProjectErrorFn);
+            //
+            //function createProjectSuccessFn(data, status, headers, config) {
+            //    console.log('Project created');
+            //    $location.url('/view/project');
+            //}
+            //
+            //function createProjectErrorFn(data, status, headers, config) {
+            //    console.error(data);
+            //    console.error(status);
+            //    console.error(headers);
+            //    console.error(config);
+            //}
         }
     }
 
