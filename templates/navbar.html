@@ -16,9 +16,9 @@
                 {% if user.is_authenticated %}
                 <li><a href="/projects">Projects</a></li>
                 <li><a href="/create">Create a project</a></li>
+                {% if vm.show %}
                 <li><a href="/admin">Admin Panel</a></li>
-                {% endif %}
-                {% if not user.is_authenticated %}
+                {% endif %} {% endif %} {% if not user.is_authenticated %}
                 <li id="mobile-login"> <a href="/login">Login</a></li>
                 <li id="mobile-reg"> <a href="/register">Register</a></li>
                 <li id="pc-login" class="dropdown">
@@ -55,9 +55,7 @@
                         </li>
                     </ul>
                 </li>
-                {% endif %}
-                {% if user.is_authenticated %}
-
+                {% endif %} {% if user.is_authenticated %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.email}} <b class="caret"></b></a>
                     <ul id="login-dp" class="dropdown-menu">
@@ -66,7 +64,9 @@
                     </ul>
                 </li>
                 {% endif %}
-            </ul><!--/.nav navbar-nav -->
-        </div><!--/.nav-collapse -->
+            </ul>
+            <!--/.nav navbar-nav -->
+        </div>
+        <!--/.nav-collapse -->
     </div>
 </div>

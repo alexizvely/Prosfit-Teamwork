@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     var navbarController = function navbarController($location, $scope, $cookies, Authentication) {
@@ -7,7 +7,8 @@
         vm.currentUser = {};
 
         waitForLogin();
-
+        vm.show = Authentication.isAdm();
+        console.log(vm.show);
         vm.logout = function logout() {
             Authentication.logout();
             vm.currentUser = undefined;
@@ -15,7 +16,7 @@
             $location.path('/');
         };
 
-        $('.nav a').on('click', function(){
+        $('.nav a').on('click', function() {
             $('.navbar-toggle').click() //bootstrap 3.x by Richard
         });
 
