@@ -23,7 +23,8 @@
             register: register,
             logout: logout,
             setAuthenticatedAccount: setAuthenticatedAccount,
-            unauthenticate: unauthenticate
+            unauthenticate: unauthenticate,
+            isAdm: isAdm
         };
 
         return Authentication;
@@ -113,6 +114,13 @@
 
         function unauthenticate() {
             delete $cookies.authenticatedAccount;
+        }
+
+        function isAdm() {
+            if (Authentication.getAuthenticatedAccount().username === 'admin') {
+                return true;
+            }
+            return false;
         }
     }
 
