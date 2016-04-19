@@ -241,7 +241,7 @@
 
             request.onreadystatechange = function (oEvent) {
                 if (request.readyState === 4) {
-                    if (request.status === 200) {
+                    if (request.status === 200 || request.status === 201) {
                         console.log(request.responseText)
                         onSuccess();
                     } else {
@@ -269,7 +269,6 @@
         function submitProject(project) {
             var svgText = '<?xml version=\"1.0\" standalone=\"no\"?>\r\n<!DOCTYPE svg PUBLIC \"-\/\/W3C\/\/DTD SVG 1.1\/\/EN\"\r\n \"http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd\">\r\n <svg width=\"100%\" height=\"100%\"' + divContainer.children().html()+'<\/svg>';
             svgText = htmlEntitiesEscape(svgText);
-
             color = $('#cp1').val().substring(1);
             selectedFigure = $("input[name=shapeType]:radio").val();
             var valueFigureForServer = '';
@@ -281,29 +280,6 @@
                 valueFigureForServer = 'sp';
             }
             sendFileToServer(valueFigureForServer, project.dimension_x, project.dimension_y, project.dimension_z, color, 'saved', svgText, project.shapename);
-            //return $http.post('/api/v1/projects/', {
-            //        author: Authentication.getAuthenticatedAccount().id,
-            //        name: project.shapename,
-            //        shape_type: valueFigureForServer,
-            //        dimension_x: project.dimension_x,
-            //        dimension_y: project.dimension_y,
-            //        dimension_z: project.dimension_z,
-            //        color: color,
-            //        status: 'saved',
-            //        svgText: svgText,
-            //}).then(createProjectSuccessFn, createProjectErrorFn);
-            //
-            //function createProjectSuccessFn(data, status, headers, config) {
-            //    console.log('Project created');
-            //    $location.url('/view/project');
-            //}
-            //
-            //function createProjectErrorFn(data, status, headers, config) {
-            //    console.error(data);
-            //    console.error(status);
-            //    console.error(headers);
-            //    console.error(config);
-            //}
         }
     }
 
