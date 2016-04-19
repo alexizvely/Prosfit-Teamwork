@@ -29,7 +29,6 @@ INSTALLED_APPS = (
 
     'rest_framework',
     'compressor',
-    'storages',
 
     'authentication',
     'projects',
@@ -97,6 +96,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "www", "static")
+# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -119,32 +119,10 @@ REST_FRAMEWORK = {
     )
 }
 
-
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'authentication.Account'
-
-# S3 setup
-
-AWS_STORAGE_BUCKET_NAME = 'pando-3d-images'
-AWS_ACCESS_KEY_ID = 'AKIAI77TISWI3WD7C3ZQ'
-AWS_SECRET_ACCESS_KEY = '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'
-
-# Tell django-storages that when coming up with the URL for an item in S3 storage, keep
-# it simple - just use this domain plus the path. (If this isn't set, things get complicated).
-# This controls how the `static` template tag from `staticfiles` gets expanded, if you're using it.
-# We also use it in the next setting.
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-# This is used by the `static` template tag from `static`, if you're using that. Or if anything else
-# refers directly to STATIC_URL. So it's safest to always set it.
-# STATIC_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
-
-# Tell the staticfiles app to use S3Boto storage when writing the collected static files (when
-# you run `collectstatic`).
-# STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

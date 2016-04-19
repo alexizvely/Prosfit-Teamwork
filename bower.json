@@ -27,6 +27,8 @@
     "angularjs-slider": "^2.11.0",
     "tooltip": "tooltip-js#^2.0.1",
     "Snap.svg": "snap.svg#^0.4.1",
-    "es6-shim": "^0.35.0"
+    "es6-shim": "^0.35.0",
+    "fileapi": "FileAPI#^2.0.20",
+    "mjolnic-bootstrap-colorpicker": "bootstrap-colorpicker#^2.3.3"
   }
 }

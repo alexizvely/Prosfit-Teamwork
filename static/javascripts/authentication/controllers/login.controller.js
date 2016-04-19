@@ -5,12 +5,12 @@
         .module('pando-3d.authentication.controllers')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', '$scope', '$http', 'Authentication'];
+    LoginController.$inject = ['$location', '$scope', '$http', 'Authentication', 'notifier'];
 
     /**
      * @namespace LoginController
      */
-    function LoginController($location, $scope, $http, Authentication) {
+    function LoginController($location, $scope, $http, Authentication, notifier) {
         var vm = this;
 
         vm.login = login;
@@ -24,7 +24,6 @@
         function activate() {
             // If the user is authenticated, they should not be here.
             if (Authentication.isAuthenticated()) {
-
                 $location.url('/');
             }
         }

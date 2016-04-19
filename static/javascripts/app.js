@@ -13,10 +13,14 @@
                 controller: 'ProjectsController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/projects.html'
-            }).when('/create/:id', {
+            }).when('/create', {
                 controller: 'CreateProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/create-project.html'
+            }).when('/create/:id', {
+                controller: 'CreateProjectController',
+                controllerAs: CONTROLLER_VIEW_MODEL_NAME,
+                templateUrl: '/static/templates/product/modify-project.html'
             }).when('/view/project/:id', {
                 controller: 'SingleProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,

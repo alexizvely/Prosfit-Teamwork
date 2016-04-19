@@ -39,9 +39,9 @@
          * @returns {Promise}
          * @memberOf pando-3d.authentication.services.Authentication
          */
-        function register(email, password, username) {
+        function register(email, password) {
             return $http.post('/api/v1/accounts/', {
-                username: username,
+                username: email,
                 password: password,
                 email: email
             });
