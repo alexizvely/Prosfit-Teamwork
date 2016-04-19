@@ -15,9 +15,9 @@
 
         vm.register = register;
 
-        function register(email, password) {
+        function register(email, password, username) {
             return $http.post('/api/v1/accounts/', {
-                username: vm.email,
+                username: vm.username,
                 password: vm.password,
                 email: vm.email
             }).then(registerSuccessFn, registerErrorFn);

@@ -3,14 +3,20 @@
 
     CreateProjectController.$inject = ['$location', '$scope', '$http', 'Authentication', 'notifier'];
 
-    /**
-     * @namespace CreateProjectController
-     */
     function CreateProjectController($location, $scope, $http, Authentication, notifier) {
         var vm = this;
-        var color = '';
-        vm.submitProject = submitProject;
+        var color = '#e2a7f7'; //initial value
+        var width = 50; //initial value
+        var height = 50; //initial value
+        var depth = 50; //initial value
+        var widthMinValue = 50;
+        var widthMaxValue = 350;
+        var heightMinValue = 50;
+        var heightMaxValue = 350;
+        var depthMinValue = 50;
+        var depthMaxValue = 350;
 
+        vm.submitProject = submitProject;
 
         $(function() {
             $('#cp1').colorpicker({
@@ -20,7 +26,67 @@
 
         $('#cp1').colorpicker().on('changeColor', function(ev){
             color = ev.color.toHex();
-            drawCuboid(100, 100, 100, color);
+            drawCuboid(width, height, depth, color);
+        });
+
+        function changeWidth(){
+            width = Number($('#dim-x').val());
+            if(width >= widthMinValue && width <= widthMaxValue){
+                $("#svg").html("");
+                drawCuboid(width, height, depth, color);
+            }
+        }
+
+        function changeHeight(){
+            height = Number($('#dim-y').val());
+            if(height >= heightMinValue && height <= heightMaxValue) {
+                $("#svg").html("");
+                drawCuboid(width, height, depth, color);
+            }
+        }
+
+        function changeDepth(){
+            depth = Number($('#dim-z').val());
+            if(depth >= depthMinValue && depth <= depthMaxValue) {
+                $("#svg").html("");
+                drawCuboid(width, height, depth, color);
+            }
+        }
+
+        $("#dim-x").bind('keyup mouseup', function () {
+            changeWidth();
+        });
+
+        $("#dim-y").bind('keyup mouseup', function () {
+            changeHeight();
+        });
+
+        $("#dim-z").bind('keyup mouseup', function () {
+            changeDepth();
+        });
+
+        $('#dim-x').on('mouseup change',function(e){
+            changeWidth();
+        });
+
+        $('#dim-y').on('mouseup change',function(e){
+            changeHeight();
+        });
+
+        $('#dim-z').on('mouseup change',function(e){
+            changeDepth();
+        });
+
+        $('#dim-x').on('keyup input',function(e){
+            changeWidth();
+        });
+
+        $('#dim-y').on('keyup input',function(e){
+            changeHeight();
+        });
+
+        $('#dim-z').on('keyup input',function(e){
+            changeDepth();
         });
 
         var divContainer = $('#svg-container');
@@ -41,14 +107,14 @@
         ///////////////////////////////////CUBOID///////////////////////
 
         function drawCuboid(width, height, depth, color){
-            var draw = SVG('svg').size(300, 300)
+            var draw = SVG('svg').size(400, 400)
 
             var w = width
             var h = height
             var d = depth
 
-            var startX = 150;
-            var startY = 150;
+            var startX = 30;
+            var startY = 30;
 
             var color = color;
 
@@ -109,8 +175,6 @@
             drawFigure(draw, edges);
         }
 
-
-
         function sendFileToServer(){
             var divContainer = $('#svg-container');
             var svgsomething = divContainer.children().html();
@@ -159,22 +223,12 @@
             }
         }
 
-        drawCuboid(100, 100, 100, color);
+        drawCuboid(width, height, depth, color);
 
         sendFileToServer();
 
-
-
-        //Ext.Ajax.request({
-        //    method: 'POST',
-        //    url: 'localhost:8000/api/v1/projects/',
-        //    jsonData: content.join('\r\n'),
-        //    headers: {
-        //        'Content-Type': 'multipart/form-data; boundary=' + file,
-        //        'Content-Length': content.length
-        //    }
-
         function submitProject(project) {
+            color = $('#cp1').val().substring(1);
             return $http.post('/api/v1/projects/', {
                     author: Authentication.getAuthenticatedAccount().id,
                     name: project.shapename,
@@ -182,7 +236,7 @@
                     dimension_x: project.dimension_x,
                     dimension_y: project.dimension_y,
                     dimension_z: project.dimension_z,
-                    color: project.color,
+                    color: color,
                     status: 'saved',
             }).then(createProjectSuccessFn, createProjectErrorFn);
 

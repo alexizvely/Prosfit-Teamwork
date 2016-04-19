@@ -451,6 +451,13 @@ a:focus {
 	margin: 25px;
 }
 
+.radio-shape{
+	display: inline-block;
+	width: 10rem;
+	padding-right: 2rem;
+	border-radius: 10rem;
+}
+
 /*	################################################################
 LOGIN DROP-DOWN
 ################################################################# */

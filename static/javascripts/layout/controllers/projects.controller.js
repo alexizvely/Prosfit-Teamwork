@@ -13,8 +13,6 @@
                 data.data.forEach(function(shape) {
                     vm.shapes.push(shape);
                 });
-                // vm.shapes = data.data;
-                console.log(data.data);
                 return Projects.getCategories();
             })
             .then(function(categories) {
@@ -31,9 +29,6 @@
                 }
 
             });
-
-
-
 
         vm.selectCategory = function(name) {
             if (vm.selectedCategory == name) {

@@ -40,9 +40,12 @@
                     <section>
                         <label class="label label-default">Shape Type *</label>
                         <label class="input">
-                            <i class="icon-append fa fa-question-circle"></i>
-                            <input type="text" ng-model="project.shape_type">
-                            <b class="tooltip tooltip-top-right">Choose shape: square, polygon, circle </b>
+                            <label class="radio-shape">
+                                <input type="radio" name="shapeType" ng-model="project.shape_type" value="Cube">Cube</label>
+                            <label class="radio-shape">
+                                <input type="radio" name="shapeType" ng-model="project.shape_type" ng-value="Cuboid">Cuboid</label>
+                            <label class="radio-shape">
+                                <input type="radio" name="shapeType" ng-model="project.shape_type" value="Sphere">Sphere</label>
                         </label>
                     </section>
 
@@ -50,7 +53,7 @@
                         <label class="label label-default">Color *</label>
                         <label class="input">
                             <!--<i class="icon-append fa fa-question-circle"></i>-->
-                            <input style="z-index: 9999;" id="cp1" type="text" value="#5367ce" ng-model="project.color"/>
+                            <input style="z-index: 9999;" id="cp1" type="text" ng-model="project.color"/>
                             <!--<b class="tooltip tooltip-top-right">Color for your shape in HEX</b>-->
                         </label>
                     </section>
@@ -61,7 +64,7 @@
                                 <label class="label label-default">Dimension X *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input type="number" ng-model="project.dimension_x">
+                                    <input id="dim-x" type="number" value="50" ng-model="project.dimension_x" min="50" max="350">
                                     <!--<b class="tooltip tooltip-top-right">Dimension X for your shape</b>-->
                                 </label>
                             </section>
@@ -72,7 +75,7 @@
                                 <label class="label label-default">Dimension Y *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input type="number" ng-model="project.dimension_y">
+                                    <input id="dim-y" type="number" value="50" ng-model="project.dimension_y" min="50" max="350">
                                     <!--<b class="tooltip tooltip-top-right">Dimension Y for your shape</b>-->
                                 </label>
                             </section>
@@ -83,7 +86,7 @@
                                 <label class="label label-default">Dimension Z *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input type="number" ng-model="project.dimension_z">
+                                    <input id="dim-z" type="number" value="50" ng-model="project.dimension_z" min="50" max="350">
                                     <!--<b class="tooltip tooltip-top-right">Dimension Z for your shape</b>-->
                                 </label>
                             </section>

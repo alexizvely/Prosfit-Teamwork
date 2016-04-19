@@ -5,9 +5,9 @@
 
         var categories = [
             'saved',
-            'sentForManufacturing',
             'waitingAdminApproval',
             'returnedForImprovements',
+            'sentForManufacturing',
             'manufacturing'
         ];
 
