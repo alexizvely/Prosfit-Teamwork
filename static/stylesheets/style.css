@@ -458,6 +458,21 @@ a:focus {
 	border-radius: 10rem;
 }
 
+.admin-show{
+	display: none;
+}
+
+.user-show{
+	display: none;
+}
+
+.hide-custom{
+	display: none;
+}
+
+.show-custom{
+	display: inline-block;
+}
 /*	################################################################
 LOGIN DROP-DOWN
 ################################################################# */

@@ -3,12 +3,11 @@
 
     var navbarController = function navbarController($location, $scope, $cookies, Authentication) {
         var vm = this;
+        var show = false;
 
         vm.currentUser = {};
 
         waitForLogin();
-        vm.show = Authentication.isAdm();
-        console.log(vm.show);
         vm.logout = function logout() {
             Authentication.logout();
             vm.currentUser = undefined;
@@ -22,8 +21,15 @@
 
         function waitForLogin() {
             if (Authentication.isAuthenticated()) {
-
+                show = Authentication.isAdm();
                 vm.currentUser = JSON.parse($cookies.authenticatedAccount);
+                if(show){
+                    $( ".admin-show").addClass("show-custom").show();
+                    $( ".user-show" ).addClass("hide-custom").hide();
+                }else{
+                    $( ".admin-show" ).addClass("hide-custom").hide();
+                    $( ".user-show" ).addClass("show-custom").show();
+                }
                 return vm.currentUser;
             }
         }
