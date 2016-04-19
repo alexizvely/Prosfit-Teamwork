@@ -25,6 +25,7 @@ class Project(models.Model):
     status = models.CharField(max_length=50, 
                             choices=STATUS_OPTIONS, 
                             default='saved')
+    svgText = models.CharField(max_length=10000000, default="")
     svgFile = models.FileField(max_length=None, upload_to=upload_file_to, blank=True, default='text.svg')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
