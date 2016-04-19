@@ -8,6 +8,8 @@
                 .then(getProjectSuccessFn, getProjectErrorFn);
 
             function getProjectSuccessFn(data, status, headers, config) {
+
+                console.log(data.data);
                 return data.data;
             }
 

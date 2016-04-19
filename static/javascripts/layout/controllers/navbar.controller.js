@@ -24,11 +24,11 @@
                 show = Authentication.isAdm();
                 vm.currentUser = JSON.parse($cookies.authenticatedAccount);
                 if(show){
-                    $( ".admin-show").show();
-                    $( ".user-show" ).hide();
+                    $( ".admin-show").addClass("show-custom").show();
+                    $( ".user-show" ).addClass("hide-custom").hide();
                 }else{
-                    $( ".admin-show" ).hide();
-                    $( ".user-show" ).show();
+                    $( ".admin-show" ).addClass("hide-custom").hide();
+                    $( ".user-show" ).addClass("show-custom").show();
                 }
                 return vm.currentUser;
             }

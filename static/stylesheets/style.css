@@ -457,6 +457,22 @@ a:focus {
 	padding-right: 2rem;
 	border-radius: 10rem;
 }
+
+.admin-show{
+	display: none;
+}
+
+.user-show{
+	display: none;
+}
+
+.hide-custom{
+	display: none;
+}
+
+.show-custom{
+	display: inline-block;
+}
 /*	################################################################
 LOGIN DROP-DOWN
 ################################################################# */
