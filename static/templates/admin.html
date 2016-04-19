@@ -21,17 +21,16 @@
 				<div id="" ng-repeat="shape in vm.shapes | filter : {name: vm.searchString, status: vm.selectedCategory}">
 					<div class="container-fluid">
 						<div class="col-lg-5 col-lg-offset-1">
-						  <a href="single-project.html"><h3 class="ctitle">{{shape.name}}</h3></a>
-						  <p><b>Last interaction: </b> April 18, 2014</p>
-						  <p><b>Progress status: </b> Saved</p>
-						  <p><b>Author: </b> Marcel Newman</p>
+						  <a href="/view/project/{{shape.id}}"><h3 class="ctitle">{{shape.name}}</h3></a>
+						  <p><b>Last interaction: </b> {{shape.updated_at}}</p>
+						  <p><b>Progress status: </b> {{shape.status}}</p>
+						  <p><b>Author: </b> {{shape.author.email}}</p>
 						  <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
 						</div>
 
 						<div class="col-lg-5 col-lg-offset-1">
-						<progress class="progress progress-striped" value="10" max="100">{{shape.status}}</progress>
-						<p><a href="#" class="btn btn-theme btn-lg">Review</a></p>
-						<p><a href="#" class="btn btn-theme btn-lg">Modify</a></p>
+
+						<p><a href="/view/project/{{shape.id}}" class="btn btn-theme btn-lg">Review</a></p>
 						</div>
 					</div>
 					<div class="hline"></div>

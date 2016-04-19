@@ -8,7 +8,7 @@
         vm.countByCategory = [];
         vm.shapes = [];
 
-        shapesData.getShapes()
+        shapesData.getUserShapes()
             .then(function(data) {
                 data.data.forEach(function(shape) {
                     vm.shapes.push(shape);

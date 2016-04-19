@@ -9,5 +9,5 @@ global:
   default_ec2_keyname: aws-eb-pando3d
   default_platform: Python 2.7
   default_region: eu-west-1
-  profile: eb-cli
+  profile: default
   sc: git
