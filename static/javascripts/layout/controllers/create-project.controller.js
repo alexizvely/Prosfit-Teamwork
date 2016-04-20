@@ -268,8 +268,8 @@
             };
 
             function onSuccess(data, status, headers, config) {
-                notifier.success('Project successfully sent to server.');
                 $location.url('/projects');
+                notifier.success('Project successfully sent to server.');
             }
 
             function onError(data, status, headers, config) {
