@@ -144,7 +144,8 @@
             }else{
                 svgtext = vm.shape.svgText;
             }
-            changedStatus = $("input[name=options]:radio").val();
+
+            changedStatus = $("input[name='options']:checked").val();
             return $http.put('/api/v1/projects/'+id+"/", {
                 name: vm.shape.name,
                 color: vm.shape.color,
