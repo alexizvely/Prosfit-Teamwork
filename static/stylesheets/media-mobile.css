@@ -13,6 +13,9 @@
     #mobile-reg{
         display: inline;
     }
+    #downloadLink{
+        display: none;
+    }
 }
 
 /*mobile phones*/
@@ -40,5 +43,8 @@
     }
     #mobile-reg{
         display: inline;
+    }
+    #downloadLink{
+        display: none;
     }
 }
