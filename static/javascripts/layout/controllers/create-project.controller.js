@@ -277,36 +277,6 @@
             }
         }
 
-
-        vm.downloadSvg = function downloadSvg(){
-            $('#svg-container').each(function() {
-                $(this).data('contents', $(this).html());
-            });
-            $('#click-here').click(function(){
-                $route.reload();
-                downloadeverything();
-            });
-
-
-            function downloadeverything(){
-
-                function downloadInnerHtml(filename, elId, mimeType) {
-
-                    var elHtml = $('#' + elId).data('contents');
-
-                    var link = document.createElement('a');
-                    mimeType = mimeType || 'text/plain';
-
-                    link.setAttribute('download', filename);
-                    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
-                    link.click();
-                }
-
-                var fileName =  'model.svg';
-                downloadInnerHtml(fileName, 'svg-container','text/html');
-            }
-        }
-
         function htmlEntitiesEscape(str) {
             return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }

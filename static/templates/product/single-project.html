@@ -18,7 +18,8 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="spacing"></div>
-            <progress id="bar" class="progress progress-striped" style="display: inline-block;" value="10" max="100">{{vm.shape.status}}</progress>
+            <progress id="bar" class="progress progress-striped" style="display: inline-block;" value="10" max="100">{{shape.status}}</progress>
+            <!--<button id="click-here" class="btn btn-theme btn-sm" ng-click="vm.downloadSvg()">Download File</button>-->
             <p><a href="/create/{{vm.shape.id}}" class="btn-user-show btn btn-theme btn-lg">Modify</a></p>
             <div class="btn-admin-show btn-group" data-toggle="buttons">
                 <label class="btn btn-primary active">

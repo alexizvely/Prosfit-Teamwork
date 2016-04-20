@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var SingleProjectController = function SingleProjectController($location, $scope, $routeParams, $http, Authentication, singleShapesData, Projects, notifier) {
+    var SingleProjectController = function SingleProjectController($location, $scope, $route, $routeParams, $http, Authentication, singleShapesData, Projects, notifier) {
         var vm = this;
         var id = $routeParams.id;
         var show = false;
@@ -46,21 +46,21 @@
                                 statusPretty = categoriesBeautified[4];
                             }
 
-                            var prettyShape = {
-                                name: vm.shape.name,
-                                color: vm.shape.color,
-                                dimension_x: vm.shape.dimension_x,
-                                dimension_y: vm.shape.dimension_y,
-                                dimension_z: vm.shape.dimension_z,
-                                shape_type: vm.shape.shape_type,
-                                status: vm.shape.status,
-                                svgText: vm.shape.svgText,
-                                id: vm.shape.id,
-                                figurePretty: figurePretty,
-                                statusPretty: statusPretty,
-                                prettyCreateDate: vm.shapes.created_at.toISOString(),
-                                prettyLastUpdateDate: vm.shapes.updated_at.toISOString(),
-                            }
+                            //var prettyShape = {
+                            //    name: vm.shape.name,
+                            //    color: vm.shape.color,
+                            //    dimension_x: vm.shape.dimension_x,
+                            //    dimension_y: vm.shape.dimension_y,
+                            //    dimension_z: vm.shape.dimension_z,
+                            //    shape_type: vm.shape.shape_type,
+                            //    status: vm.shape.status,
+                            //    svgText: vm.shape.svgText,
+                            //    id: vm.shape.id,
+                            //    figurePretty: figurePretty,
+                            //    statusPretty: statusPretty,
+                            //    prettyCreateDate: vm.shapes.created_at.toISOString(),
+                            //    prettyLastUpdateDate: vm.shapes.updated_at.toISOString(),
+                            //}
 
 
 
@@ -106,6 +106,35 @@
             changedStatus = $(this).val();
         });
 
+        vm.downloadSvg = function downloadSvg(){
+            $('#svgVisualization').each(function() {
+                $(this).data('contents', $(this).html());
+            });
+            $('#click-here').click(function(){
+                $route.reload();
+                downloadeverything();
+            });
+
+
+            function downloadeverything(){
+
+                function downloadInnerHtml(filename, elId, mimeType) {
+
+                    var elHtml = $('#' + elId).data('contents');
+
+                    var link = document.createElement('a');
+                    mimeType = mimeType || 'text/plain';
+
+                    link.setAttribute('download', filename);
+                    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+                    link.click();
+                }
+
+                var fileName =  'model.svg';
+                downloadInnerHtml(fileName, 'svgVisualization','text/html');
+            }
+        }
+
         function changeStatus(){
             var svgtext = '';
             if(vm.shape.svg == ''){
@@ -141,5 +170,5 @@
 
     angular
         .module('pando-3d.layout.controllers')
-        .controller('SingleProjectController', ['$location', '$scope', '$routeParams', '$http', 'Authentication', 'singleShapesData', 'Projects', 'notifier', SingleProjectController]);
+        .controller('SingleProjectController', ['$location', '$scope', '$route', '$routeParams', '$http', 'Authentication', 'singleShapesData', 'Projects', 'notifier', SingleProjectController]);
 }());
