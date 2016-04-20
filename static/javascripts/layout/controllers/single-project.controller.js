@@ -15,6 +15,7 @@
             'Manufactured'
         ];
         var svgHtml;
+        vm.prettyShape = {};
 
         singleShapesData.getShape(id)
             .then(function(data) {
@@ -23,13 +24,14 @@
                 var categories = Projects.getCategories()
                     .then(function(categories) {
                         var bar = $('#bar');
+
+                        //////////////////Pretify///
                         var status = vm.shape.status;
                         var figurePretty = '';
                         var statusPretty = '';
-
                             if(vm.shape.shape_type == 'cu'){
                                 figurePretty = 'Cube';
-                            }else if(selectedFigure == 'po'){
+                            }else if(vm.shape.shape_type == 'po'){
                                 figurePretty = 'Cuboid';
                             }else{
                                 figurePretty = 'Sphere';
@@ -47,23 +49,13 @@
                                 statusPretty = categoriesBeautified[4];
                             }
 
-                            //var prettyShape = {
-                            //    name: vm.shape.name,
-                            //    color: vm.shape.color,
-                            //    dimension_x: vm.shape.dimension_x,
-                            //    dimension_y: vm.shape.dimension_y,
-                            //    dimension_z: vm.shape.dimension_z,
-                            //    shape_type: vm.shape.shape_type,
-                            //    status: vm.shape.status,
-                            //    svgText: vm.shape.svgText,
-                            //    id: vm.shape.id,
-                            //    figurePretty: figurePretty,
-                            //    statusPretty: statusPretty,
-                            //    prettyCreateDate: vm.shapes.created_at.toISOString(),
-                            //    prettyLastUpdateDate: vm.shapes.updated_at.toISOString(),
-                            //}
-
-
+                            vm.prettyShape = {
+                                figurePretty: figurePretty,
+                                statusPretty: statusPretty,
+                                prettyCreateDate: prettyDate(vm.shape.created_at),
+                                prettyLastUpdateDate: prettyDate(vm.shape.updated_at),
+                            }
+                        //////////////////Pretify///
 
                         if (status == categories[0]) {
                             bar.val(10);
@@ -125,6 +117,26 @@
             });
         }
 
+        //////////////Pretty
+        function prettyDate(time){
+            var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
+                diff = (((new Date()).getTime() - date.getTime()) / 1000),
+                day_diff = Math.floor(diff / 86400);
+
+            if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+                return;
+
+            return day_diff == 0 && (
+                diff < 60 && "just now" ||
+                diff < 120 && "1 minute ago" ||
+                diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+                diff < 7200 && "1 hour ago" ||
+                diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+                day_diff == 1 && "Yesterday" ||
+                day_diff < 7 && day_diff + " days ago" ||
+                day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+        }
+
         function changeStatus(){
             var svgtext = '';
             if(vm.shape.svg == ''){
@@ -133,7 +145,6 @@
                 svgtext = vm.shape.svgText;
             }
             changedStatus = $("input[name=options]:radio").val();
-            console.log(changedStatus);
             return $http.put('/api/v1/projects/'+id+"/", {
                 name: vm.shape.name,
                 color: vm.shape.color,

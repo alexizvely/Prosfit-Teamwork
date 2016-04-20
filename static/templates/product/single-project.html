@@ -46,16 +46,16 @@
             <div class="row">
                 <div class="col-sm-6">
                     <p><b>Color: </b> <span style="color: {{'#'+ vm.shape.color}}">&#9632;</span> #{{vm.shape.color}}</p>
-                    <p><b>Shape type: </b> {{vm.shape.shape_type}}* <br/><span style="font-style: italic"> */ cu: cube, po: cuboid, sp: sphere</span></p>
+                    <p><b>Shape type: </b> {{vm.prettyShape.figurePretty}}</p>
                     <p><b>Project name: </b>{{vm.shape.name}}</p>
                     <p><b>Dimensions: </b> x: {{vm.shape.dimension_x}}, y: {{vm.shape.dimension_y}}, z: {{vm.shape.dimension_z}}</p>
-                    <p><b>Progress status: </b> {{vm.shape.status}}</p>
+                    <p><b>Progress status: </b> {{vm.prettyShape.statusPretty}}</p>
                     <p class="btn-admin-show"><b>Author: </b> {{vm.shape.author.email}}</p>
                     <p class="btn-admin-show"><b>Author Id: </b> {{vm.shape.author.id}}</p>
-                    <p class="btn-admin-show"><b>Last interaction: </b> {{vm.shape.updated_at}}</p>
-                    <p><b>Created: </b> {{vm.shape.created_at}}</p>
+                    <p class="btn-admin-show"><b>Last interaction: </b> {{vm.prettyShape.prettyLastUpdateDate}}</p>
+                    <p><b>Created: </b> {{vm.prettyShape.prettyCreateDate}}</p>
                     <p><b>Project Id: </b> {{vm.shape.id}}</p>
-                    <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
+                    <!--<p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>-->
                 </div>
                 <div class="col-sm-6">
                     <div id="svgVisualization"></div>
