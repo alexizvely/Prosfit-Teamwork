@@ -19,7 +19,9 @@
         <div class="col-sm-4">
             <div class="spacing"></div>
             <progress id="bar" class="progress progress-striped" style="display: inline-block;" value="10" max="100">{{shape.status}}</progress>
-            <!--<button id="click-here" class="btn btn-theme btn-sm" ng-click="vm.downloadSvg()">Download File</button>-->
+            <p><a href="/create/{{vm.shape.id}}" class="btn-user-show btn btn-theme btn-lg">Modify</a></p>
+            <a href="#" id="downloadLink">Download the inner html of #main</a>
+            <button id="click-here" class="btn btn-theme btn-sm" ng-click="vm.downloadSvg()">Download File</button>
             <p><a href="/create/{{vm.shape.id}}" class="btn-user-show btn btn-theme btn-lg">Modify</a></p>
             <div class="btn-admin-show btn-group" data-toggle="buttons">
                 <label class="btn btn-primary active">
@@ -42,7 +44,7 @@
             <h4>Project Details</h4>
             <div class="hline"></div>
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <p><b>Color: </b> <span style="color: {{'#'+ vm.shape.color}}">&#9632;</span> #{{vm.shape.color}}</p>
                     <p><b>Shape type: </b> {{vm.shape.shape_type}}* <br/><span style="font-style: italic"> */ cu: cube, po: cuboid, sp: sphere</span></p>
                     <p><b>Project name: </b>{{vm.shape.name}}</p>
@@ -55,7 +57,7 @@
                     <p><b>Project Id: </b> {{vm.shape.id}}</p>
                     <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div id="svgVisualization"></div>
                 </div>
             </div>

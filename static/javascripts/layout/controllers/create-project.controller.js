@@ -25,6 +25,7 @@
 
         vm.submitProject = submitProject;
 
+        colorpickerInput.val(color);
         $(function() {
             colorpickerInput.colorpicker({
                 format: 'hex',
@@ -268,7 +269,7 @@
 
             function onSuccess(data, status, headers, config) {
                 notifier.success('Project successfully sent to server.');
-                $location.url('/projects');
+                $location.path('/projects');
             }
 
             function onError(data, status, headers, config) {

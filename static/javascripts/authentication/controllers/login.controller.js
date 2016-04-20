@@ -5,12 +5,12 @@
         .module('pando-3d.authentication.controllers')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', '$scope', '$http', 'Authentication', 'notifier'];
+    LoginController.$inject = ['$location', '$route', '$scope', '$http', 'Authentication', 'notifier'];
 
     /**
      * @namespace LoginController
      */
-    function LoginController($location, $scope, $http, Authentication, notifier) {
+    function LoginController($location, $route, $scope, $http, Authentication, notifier) {
         var vm = this;
 
         vm.login = login;

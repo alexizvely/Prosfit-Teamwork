@@ -107,32 +107,48 @@
         });
 
         vm.downloadSvg = function downloadSvg(){
-            $('#svgVisualization').each(function() {
-                $(this).data('contents', $(this).html());
-            });
-            $('#click-here').click(function(){
-                $route.reload();
-                downloadeverything();
-            });
+            //$('#svgVisualization').each(function() {
+            //    $(this).data('contents', $(this).html());
+            //});
+            //$('#click-here').click(function(){
+            //    $route.reload();
+            //    downloadeverything();
+            //});
 
 
-            function downloadeverything(){
+            //function downloadeverything(){
 
-                function downloadInnerHtml(filename, elId, mimeType) {
+            //    function downloadInnerHtml(filename, elId, mimeType) {
+            //
+            //        var elHtml = $('#' + elId).data('contents');
+            //
+            //        var link = document.createElement('a');
+            //        mimeType = mimeType || 'text/plain';
+            //
+            //        link.setAttribute('download', filename);
+            //        link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+            //        link.click();
+            //    }
+            //
+            //    var fileName =  'model.svg';
+            //    downloadInnerHtml(fileName, 'svgVisualization','text/html');
+            //}
 
-                    var elHtml = $('#' + elId).data('contents');
+            function downloadInnerHtml(filename, elId, mimeType) {
+                var elHtml = document.getElementById(elId).innerHTML;
+                var link = document.createElement('a');
+                mimeType = mimeType || 'text/plain';
 
-                    var link = document.createElement('a');
-                    mimeType = mimeType || 'text/plain';
-
-                    link.setAttribute('download', filename);
-                    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
-                    link.click();
-                }
-
-                var fileName =  'model.svg';
-                downloadInnerHtml(fileName, 'svgVisualization','text/html');
+                link.setAttribute('download', filename);
+                link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+                link.click();
             }
+
+            var fileName =  'module.svg'; // You can use the .txt extension if you want
+
+            $('#downloadLink').click(function(){
+                downloadInnerHtml(fileName, 'svgVisualization','text/html');
+            });
         }
 
         function changeStatus(){
@@ -156,7 +172,7 @@
             }).then(changeStatusSuccessFn, changeStatusErrorFn);
 
             function changeStatusSuccessFn(data, status, headers, config) {
-                $location.url('/view/project/'+id);
+                $location.path('/view/project/'+id);
                 window.location.reload(true);
                 notifier.success('Status changed successfully!');
             }

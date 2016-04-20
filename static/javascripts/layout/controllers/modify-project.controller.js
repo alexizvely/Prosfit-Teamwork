@@ -29,10 +29,10 @@
                 vm.shape = data;
                 color = '#' + vm.shape.color;
                 drawFigure(vm.shape.dimension_x, vm.shape.dimension_y, vm.shape.dimension_z, color, vm.shape.shape_type);
-                colorpickerInput.val() = color;
-                dimXField.val() = Number(vm.shape.dimension_x);
-                dimYField.val() = Number(vm.shape.dimension_y);
-                dimZField.val() = Number(vm.shape.dimension_z);
+                colorpickerInput.val(color);
+                dimXField.val(Number(vm.shape.dimension_x));
+                dimYField.val(Number(vm.shape.dimension_y));
+                dimZField.val(Number(vm.shape.dimension_z));
             });
 
         vm.submitProject = submitProject;
@@ -42,7 +42,7 @@
                 format: 'hex',
                 color: color
             });
-            colorpickerInput.val() = color;
+            colorpickerInput.val(color);
             colorpickerInput.colorpicker('update');
         });
 
@@ -270,7 +270,7 @@
 
             function onSuccess(data, status, headers, config) {
                 notifier.success('Project successfully sent to server.');
-                $location.url('/');
+                $location.path('/');
             }
 
             function onError(data, status, headers, config) {
