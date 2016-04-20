@@ -24,7 +24,7 @@
                     </p>
                 </div>
                 <div class="col-lg-9">
-                    <div class="col-lg-4" ng-repeat="item in vm.countByCategory" ng-click="vm.selectCategory(item.name)">
+                    <div class="col-lg-4" ng-repeat="item in vm.countByCategory" ng-click="vm.selectCategory(item.serverName)">
                         <a href="#" style="word-wrap: break-word"><i class="fa fa-angle-right"></i> {{item.name}}</a> <span class="badge badge-theme">{{item.count}}</span>
                     </div>
                 </div>
@@ -38,19 +38,18 @@
  ***************************************************************************************************************** -->
 <div id="container mtb portfoliowrap animated zoomIn">
     <div class="row">
-        <div class="col-sm-3 project-item he-wrap tpl6 centered" ng-repeat="shape in vm.shapes | filter : {name: vm.searchString, status: vm.selectedCategory}">
+        <div class="col-sm-3 project-item he-wrap tpl6 centered" ng-repeat="shape in vm.prettyShapes | filter : {name: vm.searchString, status: vm.selectedCategory}">
             <div style="background-color: {{'#' + shape.color}}; opacity: 0.6;" class="portfolio-item">
                 <br/>
-                <p style="font-weight: bold; color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Shape type: </b> {{shape.shape_type}}</p>
+                <p style="font-weight: bold; color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Shape type: </b> {{shape.figurePretty}}</p>
                 <p style="font-weight: bold; color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Dimensions: </b> x: {{shape.dimension_x}}, y: {{shape.dimension_y}}, z: {{shape.dimension_z}}</p>
-                <p style="font-weight: bold;color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Last interaction: </b> {{shape.audit_info.last_edit}}</p>
-                <p style="font-weight: bold; color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Progress status: </b> {{shape.status}}</p>
+                <p style="font-weight: bold;color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Last interaction: </b> {{shape.prettyLastUpdateDate}}</p>
+                <p style="font-weight: bold; color: {{shape.color}}; -webkit-filter: invert(85%); filter: invert(85%);"><b>Progress status: </b> {{shape.statusPretty}}</p>
                 <br/>
                 <div class="he-view">
                     <div class="bg a0" data-animate="fadeIn">
-                        <h3 class="a1" data-animate="fadeInDown">{{shape.status}}</h3>
+                        <h3 class="a1" data-animate="fadeInDown">{{shape.statusPretty}}</h3>
                         <a data-rel="prettyPhoto" href="/view/project/{{shape.id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-info-circle"></i></a>
-                        <a href="/create/{{shape.id}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-pencil-square-o"></i></a>
                     </div>
                     <!-- he bg -->
                 </div>

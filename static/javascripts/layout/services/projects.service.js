@@ -5,10 +5,10 @@
 
         var categories = [
             'saved',
-            'waitingAdminApproval',
-            'returnedForImprovements',
-            'sentForManufacturing',
-            'manufacturing'
+            'sentW',
+            'sentR',
+            'sentA',
+            'manuf'
         ];
 
         var getCategories = function() {

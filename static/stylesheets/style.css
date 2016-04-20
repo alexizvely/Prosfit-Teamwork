@@ -459,10 +459,18 @@ a:focus {
 }
 
 .admin-show{
+	 display: none;
+ }
+
+.user-show{
 	display: none;
 }
 
-.user-show{
+.btn-admin-show{
+	display: none;
+}
+
+.btn-user-show{
 	display: none;
 }
 
@@ -472,6 +480,12 @@ a:focus {
 
 .show-custom{
 	display: inline-block;
+}
+
+#svgVisualization{
+	padding-top: 3rem;
+	width: 20rem;
+	height: 20rem;
 }
 /*	################################################################
 LOGIN DROP-DOWN

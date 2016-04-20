@@ -4,7 +4,7 @@
 <div id="blue">
     <div class="container">
         <div class="row">
-            <h3 class="animated fadeInDown">Create new project</h3>
+            <h3 class="animated fadeInDown">Modify project {{vm.shape.name}}</h3>
         </div><!-- /row -->
     </div> <!-- /container -->
 </div><!-- /blue -->
@@ -29,27 +29,6 @@
             <form class="sky-form">
                 <fieldset>
                     <section>
-                        <label class="label label-default" style="text-align: center;">Title *</label>
-                        <label class="input">
-                            <i class="icon-append fa fa-question-circle"></i>
-                            <input type="text" ng-model="project.shapename">
-                            <b class="tooltip tooltip-top-right">  Name of your project</b>
-                        </label>
-                    </section>
-
-                    <section>
-                        <label class="label label-default" style="text-align: center;">  Shape Type *</label>
-                        <label class="input">
-                            <label class="radio-shape">
-                                <input id="cube" type="radio" name="shapeType" ng-model="project.shape_type" value="Cube">Cube</label>
-                            <label class="radio-shape">
-                                <input id="cuboid" type="radio" name="shapeType" ng-model="project.shape_type" value="Cuboid">Cuboid</label>
-                            <label class="radio-shape">
-                                <input id="sphere" type="radio" name="shapeType" ng-model="project.shape_type" value="Sphere">Sphere</label>
-                        </label>
-                    </section>
-
-                    <section>
                         <label class="label label-default" style="text-align: center;">  Color *</label>
                         <label class="input">
                             <!--<i class="icon-append fa fa-question-circle"></i>-->
@@ -64,7 +43,7 @@
                                 <label class="label label-default" style="text-align: center;">  Dimension X *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input id="dim-x" type="number" value="50" ng-model="project.dimension_x" min="50" max="350">
+                                    <input id="dim-x" type="number" ng-model="project.dimension_x" min="50" max="350"">
                                     <!--<b class="tooltip tooltip-top-right">Dimension X for your shape</b>-->
                                 </label>
                             </section>
@@ -75,7 +54,7 @@
                                 <label class="label label-default" style="text-align: center;">  Dimension Y *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input id="dim-y" type="number" value="50" ng-model="project.dimension_y" min="50" max="350">
+                                    <input id="dim-y" type="number" ng-model="project.dimension_y" min="50" max="350">
                                     <!--<b class="tooltip tooltip-top-right">Dimension Y for your shape</b>-->
                                 </label>
                             </section>
@@ -86,14 +65,14 @@
                                 <label class="label label-default" style="text-align: center;">  Dimension Z *</label>
                                 <label class="input">
                                     <!--<i class="icon-append fa fa-question-circle"></i>-->
-                                    <input id="dim-z" type="number" value="50" ng-model="project.dimension_z" min="50" max="350">
+                                    <input id="dim-z" type="number" ng-model="project.dimension_z" min="50" max="350">
                                     <!--<b class="tooltip tooltip-top-right">Dimension Z for your shape</b>-->
                                 </label>
                             </section>
                         </div>
                     </div>
                     <footer>
-                        <button class="btn btn-theme btn-sm" ng-click="vm.submitProject(project)">Submit</button>
+                        <button class="btn btn-theme btn-sm" ng-click="vm.submitProject(project)">Send Changes For Approval</button>
                     </footer>
                 </fieldset>
             </form>

@@ -12,7 +12,7 @@
             Authentication.logout();
             vm.currentUser = undefined;
             waitForLogin();
-            $location.path('/');
+            $location.url('/');
         };
 
         $('.nav a').on('click', function() {

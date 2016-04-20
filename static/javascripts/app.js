@@ -18,7 +18,7 @@
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/create-project.html'
             }).when('/create/:id', {
-                controller: 'CreateProjectController',
+                controller: 'ModifyProjectController',
                 controllerAs: CONTROLLER_VIEW_MODEL_NAME,
                 templateUrl: '/static/templates/product/modify-project.html'
             }).when('/view/project/:id', {

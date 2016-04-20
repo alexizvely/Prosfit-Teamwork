@@ -1,17 +1,17 @@
-from django.test import SimpleTestCase
-from rest_framework.test import APIClient
+from django.test import TestCase
+from rest_framework.test import APIClient, APIRequestFactory, force_authenticate
+from authentication.models import Account
+import authentication.views
 
 # Create your tests here.
 
 
-class HomeTestCase(SimpleTestCase):
+class HomeTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
+        self.requests = APIRequestFactory()
     
     def test_get_home_returns_200(self):
         response = self.client.get('/')
         
         self.assertEqual(response.status_code, 200)
-    
-    def test_register_with_correct_data_is_succesful(self):
-        response = self.login()
