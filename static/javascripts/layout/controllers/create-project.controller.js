@@ -258,7 +258,7 @@
             request.onreadystatechange = function (oEvent) {
                 if (request.readyState === 4) {
                     if (request.status === 200 || request.status === 201) {
-                        console.log(request.responseText);
+                        //console.log(request.responseText);
                         onSuccess();
                     } else {
                         console.log("Error", request.statusText);
@@ -269,7 +269,7 @@
 
             function onSuccess(data, status, headers, config) {
                 notifier.success('Project successfully sent to server.');
-                $location.path('/projects');
+                $location.url('#/projects');
             }
 
             function onError(data, status, headers, config) {
@@ -283,7 +283,7 @@
         }
 
         function submitProject(project) {
-            var svgText = '<?xml version=\"1.0\" standalone=\"no\"?>\r\n<!DOCTYPE svg PUBLIC \"-\/\/W3C\/\/DTD SVG 1.1\/\/EN\"\r\n \"http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd\">\r\n <svg width=\"100%\" height=\"100%\"' + divContainer.children().html()+'<\/svg>';
+            var svgText = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>' + divContainer[0].innerHTML;
             svgText = htmlEntitiesEscape(svgText);
             color = colorpickerInput.val().substring(1);
             selectedFigure = $("input[name=shapeType]:radio").val();

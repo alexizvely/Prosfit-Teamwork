@@ -270,7 +270,7 @@
 
             function onSuccess(data, status, headers, config) {
                 notifier.success('Project successfully sent to server.');
-                $location.path('/');
+                $location.url('/');
             }
 
             function onError(data, status, headers, config) {

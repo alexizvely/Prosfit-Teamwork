@@ -14,6 +14,7 @@
             'Sent for Manufacturing, Approved',
             'Manufactured'
         ];
+        var svgHtml;
 
         singleShapesData.getShape(id)
             .then(function(data) {
@@ -92,7 +93,7 @@
                         }
                     });
 
-                var svgHtml = vm.shape.svgText;
+                svgHtml = vm.shape.svgText;
                 while (svgHtml.match(/="([^"]*)\&[gl]t;([^"]*)"/g)) {
                     svgHtml = svgHtml.replace(/="([^"]*)\&gt;([^"]*)"/g, '="$1>$2"')
                         .replace(/="([^"]*)\&lt;([^"]*)"/g, '="$1<$2"');
@@ -107,40 +108,13 @@
         });
 
         vm.downloadSvg = function downloadSvg(){
-            //$('#svgVisualization').each(function() {
-            //    $(this).data('contents', $(this).html());
-            //});
-            //$('#click-here').click(function(){
-            //    $route.reload();
-            //    downloadeverything();
-            //});
-
-
-            //function downloadeverything(){
-
-            //    function downloadInnerHtml(filename, elId, mimeType) {
-            //
-            //        var elHtml = $('#' + elId).data('contents');
-            //
-            //        var link = document.createElement('a');
-            //        mimeType = mimeType || 'text/plain';
-            //
-            //        link.setAttribute('download', filename);
-            //        link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
-            //        link.click();
-            //    }
-            //
-            //    var fileName =  'model.svg';
-            //    downloadInnerHtml(fileName, 'svgVisualization','text/html');
-            //}
-
             function downloadInnerHtml(filename, elId, mimeType) {
                 var elHtml = document.getElementById(elId).innerHTML;
                 var link = document.createElement('a');
                 mimeType = mimeType || 'text/plain';
 
                 link.setAttribute('download', filename);
-                link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+                link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + svgHtml);
                 link.click();
             }
 
@@ -172,7 +146,7 @@
             }).then(changeStatusSuccessFn, changeStatusErrorFn);
 
             function changeStatusSuccessFn(data, status, headers, config) {
-                $location.path('/view/project/'+id);
+                $location.url('/view/project/'+id);
                 window.location.reload(true);
                 notifier.success('Status changed successfully!');
             }
