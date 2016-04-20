@@ -1,10 +1,11 @@
 (function () {
     'use strict';
 
-    CreateProjectController.$inject = ['$location', '$scope', '$http', '$cookies', '$route', 'Authentication', 'notifier'];
+    ModifyProjectController.$inject = ['$location', '$scope', '$http', '$cookies', '$routeParams', 'singleShapesData', 'Authentication', 'notifier'];
 
-    function CreateProjectController($location, $scope, $http, $cookies, $route, Authentication, notifier) {
+    function ModifyProjectController($location, $scope, $http, $cookies, $routeParams, singleShapesData, Authentication, notifier) {
         var vm = this;
+        var id = $routeParams.id;
         var color = '#e2a7f7'; //initial value
         var width = 150; //initial value
         var height = 50; //initial value
@@ -19,9 +20,20 @@
         var dimXField = $("#dim-x");
         var dimYField = $("#dim-y");
         var dimZField = $("#dim-z");
-        var drawnSvg = $("#svg");
         var colorpickerInput = $('#cp1');
         var divContainer = $('#svg-container');
+        var drawnSvg = $("#svg");
+
+        singleShapesData.getShape(id)
+            .then(function(data) {
+                vm.shape = data;
+                color = '#' + vm.shape.color;
+                drawFigure(vm.shape.dimension_x, vm.shape.dimension_y, vm.shape.dimension_z, color, vm.shape.shape_type);
+                colorpickerInput.val() = color;
+                dimXField.val() = Number(vm.shape.dimension_x);
+                dimYField.val() = Number(vm.shape.dimension_y);
+                dimZField.val() = Number(vm.shape.dimension_z);
+            });
 
         vm.submitProject = submitProject;
 
@@ -30,6 +42,7 @@
                 format: 'hex',
                 color: color
             });
+            colorpickerInput.val() = color;
             colorpickerInput.colorpicker('update');
         });
 
@@ -85,7 +98,6 @@
             }
         }
 
-
         dimXField.bind('keyup mouseup', function () {
             changeWidth();
         });
@@ -122,10 +134,6 @@
             changeDepth();
         });
 
-        // drawCuboid(width, height, depth, color);
-
-        //sendFileToServer();
-
         function drawFigure(width, height, depth, color, selectedFigure){
             switch(selectedFigure) {
                 case 'cu':
@@ -136,16 +144,10 @@
                     break;
                 case 'sp':
                     var draw = SVG('svg').size(400, 400);
-                    //var gradient = draw.gradient('radial', function(stop) {
-                    //    stop.at({ offset: 0, color: '#000', opacity: 0.95 });
-                    //    stop.at({ offset: 0.4, color: '#404040', opacity: 1 });
-                    //    stop.at({ offset: 1, color: color, opacity: 1 });
-                    //});
-                    //gradient.from(0.3, 0.3).to(0.4, 0.4);
-                    draw.circle(width).fill(color).move(30, 30);
+                    draw.circle(width);
                     break;
                 default:
-                    drawCuboid(width, height, depth, color);
+                    drawCuboid(width,  height, depth, color);
             }
         }
 
@@ -220,7 +222,7 @@
             drawFigure(draw, edges);
         }
 
-        function sendFileToServer(shape_type, dimension_x, dimension_y, dimension_z, color, status, svgText, name){
+        function sendFileToServer(shape_type, dimension_x, dimension_y, dimension_z, color, status, svgText, name, id){
             var svgsomething = divContainer.children().html();
 
             var formData = new FormData();
@@ -237,7 +239,7 @@
             formData.append('name', name);
 
             var request = new XMLHttpRequest();
-            request.open("POST", "/api/v1/projects/");
+            request.open("POST", "/api/v1/projects/" + id + "/");
             request.setRequestHeader('X-CSRFToken',$cookies.csrftoken);
             //////Console log the request
             //for(var pair of formData.entries()) {
@@ -257,7 +259,7 @@
             request.onreadystatechange = function (oEvent) {
                 if (request.readyState === 4) {
                     if (request.status === 200 || request.status === 201) {
-                        console.log(request.responseText);
+                        console.log(request.responseText)
                         onSuccess();
                     } else {
                         console.log("Error", request.statusText);
@@ -268,7 +270,7 @@
 
             function onSuccess(data, status, headers, config) {
                 notifier.success('Project successfully sent to server.');
-                $location.url('/projects');
+                $location.url('/');
             }
 
             function onError(data, status, headers, config) {
@@ -277,38 +279,8 @@
             }
         }
 
-
-        vm.downloadSvg = function downloadSvg(){
-            $('#svg-container').each(function() {
-                $(this).data('contents', $(this).html());
-            });
-            $('#click-here').click(function(){
-                $route.reload();
-                downloadeverything();
-            });
-
-
-            function downloadeverything(){
-
-                function downloadInnerHtml(filename, elId, mimeType) {
-
-                    var elHtml = $('#' + elId).data('contents');
-
-                    var link = document.createElement('a');
-                    mimeType = mimeType || 'text/plain';
-
-                    link.setAttribute('download', filename);
-                    link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
-                    link.click();
-                }
-
-                var fileName =  'model.svg';
-                downloadInnerHtml(fileName, 'svg-container','text/html');
-            }
-        }
-
         function htmlEntitiesEscape(str) {
-            return String(str).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return String(str).replace(/</g, '&lt;');
         }
 
         function submitProject(project) {
@@ -317,24 +289,18 @@
             color = colorpickerInput.val().substring(1);
             selectedFigure = $("input[name=shapeType]:radio").val();
             var valueFigureForServer = '';
-            var dimY = project.dimension_y;
-            var dimZ = project.dimension_z;
             if(selectedFigure == 'Cube'){
                 valueFigureForServer = 'cu';
-                dimY = project.dimension_x;
-                dimZ = project.dimension_x;
             }else if(selectedFigure == 'Cuboid'){
                 valueFigureForServer = 'po';
             }else{
                 valueFigureForServer = 'sp';
-                dimY = project.dimension_x;
-                dimZ = project.dimension_x;
             }
-            sendFileToServer(valueFigureForServer, project.dimension_x, dimY, dimZ, color, 'saved', svgText, project.shapename);
+            sendFileToServer(valueFigureForServer, project.dimension_x, project.dimension_y, project.dimension_z, color, 'saved', svgText, vm.shape.name, id);
         }
     }
 
     angular
         .module('pando-3d.layout.controllers')
-        .controller('CreateProjectController', CreateProjectController);
+        .controller('ModifyProjectController', ModifyProjectController);
 }());

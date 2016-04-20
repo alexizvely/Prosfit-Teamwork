@@ -7,6 +7,13 @@
         vm.searchString = '';
         vm.countByCategory = [];
         vm.shapes = [];
+        var categoriesBeautified = [
+            'Saved',
+            'Sent for Manufacturing, Awaiting approval',
+            'Returned for improvements',
+            'Sent for Manufacturing, Approved',
+            'Manufactured'
+        ];
 
         shapesData.getUserShapes()
             .then(function(data) {
@@ -17,8 +24,10 @@
             })
             .then(function(categories) {
                 for (var i = 0; i < categories.length; i++) {
+
                     var categoryModel = {
-                        name: categories[i],
+                        serverName: categories[i],
+                        name: categoriesBeautified[i],
                         count: vm.shapes.filter(function(project) {
                             return project.status == categories[i]
                         }).length

@@ -6,8 +6,9 @@ from models import Project
 class ProjectSerializer(serializers.ModelSerializer):
     author = AccountSerializer(read_only=True, required=False)
     svgFile = serializers.FileField(write_only=True, required=False)
-    svgText = serializers.CharField(write_only=True, required=False)
+    svgText = serializers.CharField(required=False)
 
+    print dir(svgText);
     class Meta:
         model = Project
 

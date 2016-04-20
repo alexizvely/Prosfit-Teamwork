@@ -37,6 +37,7 @@
 
         function activate() {
             // If the user is authenticated, they should not be here.
+            console.log(isAuthenticated());
             if (Authentication.getAuthenticatedAccount() == '') {
                 $location.url('/');
             }

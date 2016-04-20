@@ -1,67 +1,64 @@
-	<!-- *****************************************************************************************************************
-	 BLUE WRAP
-	 ***************************************************************************************************************** -->
-	<div id="blue">
-	    <div class="container">
-			<div class="row">
-				<h3 class="animated fadeInDown">Administrator's Panel</h3>
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /blue -->
+<!-- *****************************************************************************************************************
+ BLUE WRAP
+ ***************************************************************************************************************** -->
+<div id="blue">
+	<div class="container">
+		<div class="row">
+			<h3 class="animated fadeInDown">Administrator's Panel</h3>
+		</div><!-- /row -->
+	</div> <!-- /container -->
+</div><!-- /blue -->
 
 
-	<!-- *****************************************************************************************************************
-	 BLOG CONTENT
-	 ***************************************************************************************************************** -->
+<!-- *****************************************************************************************************************
+ CONTENT
+ ***************************************************************************************************************** -->
 
-	 <div class="container mtb animated zoomIn">
-	 	<div class="row">
-	 		<! -- Projects List -->
-	 		<div class="col-lg-8">
-				<div id="" ng-repeat="shape in vm.shapes | filter : {name: vm.searchString, status: vm.selectedCategory}">
-					<div class="container-fluid">
-						<div class="col-lg-5 col-lg-offset-1">
-						  <a href="/view/project/{{shape.id}}"><h3 class="ctitle">{{shape.name}}</h3></a>
-						  <p><b>Last interaction: </b> {{shape.updated_at}}</p>
-						  <p><b>Progress status: </b> {{shape.status}}</p>
-						  <p><b>Author: </b> {{shape.author.email}}</p>
-						  <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
-						</div>
+ <div class="container mtb animated zoomIn">
+	<div class="row">
+		<div class="col-lg-4">
+			<h4>Search</h4>
+			<div class="hline"></div>
+			<p>
+				<br/>
+				<input type="text" class="form-control" placeholder="Search for a project" ng-model="vm.searchString">
+			</p>
 
-						<div class="col-lg-5 col-lg-offset-1">
+			<div class="spacing"></div>
 
-						<p><a href="/view/project/{{shape.id}}" class="btn btn-theme btn-lg">Review</a></p>
-						</div>
+			<h4>Categories</h4>
+			<div class="hline"></div>
+			<p ng-repeat="item in vm.countByCategory" ng-click="vm.selectCategory(item.serverName)">
+				<a href="#"><i class="fa fa-angle-right"></i> {{item.name}}</a> <span class="badge badge-theme pull-right">{{item.count}}</span>
+			</p>
+			<div class="spacing"></div>
+		</div>
+		<! -- Projects List -->
+		<div class="col-lg-8">
+			<div id="" ng-repeat="shape in vm.shapes | filter : {name: vm.searchString, status: vm.selectedCategory}">
+				<div class="container-fluid">
+					<div class="col-lg-5 col-lg-offset-1">
+					  <a href="/view/project/{{shape.id}}"><h3 class="ctitle">{{shape.name}}</h3></a>
+					  <p><b>Last interaction: </b> {{shape.updated_at}}</p>
+					  <p><b>Progress status: </b> {{shape.status}}</p>
+					  <p><b>Author: </b> {{shape.author.email}}</p>
+					  <p><b>Download shape: </b> <a href="http://google.com">http://google.com</a></p>
 					</div>
-					<div class="hline"></div>
 
-					<div class="spacing"></div>
-					<script>
+					<div class="col-lg-5 col-lg-offset-1">
 
-					</script>
+					<p><a href="/view/project/{{shape.id}}" class="btn btn-theme btn-lg">Review</a></p>
+					</div>
 				</div>
+				<div class="hline"></div>
 
-				<div ng-show="vm.shapes.length == 0">Nothing</div>
-			</div><!--/col-lg-8 -->
+				<div class="spacing"></div>
+				<script>
 
+				</script>
+			</div>
 
-	 		<! -- SIDEBAR -->
-	 		<div class="col-lg-4">
-		 		<h4>Search</h4>
-		 		<div class="hline"></div>
-		 			<p>
-		 				<br/>
-		 				<input type="text" class="form-control" placeholder="Search for a project" ng-model="vm.searchString">
-		 			</p>
-
-		 		<div class="spacing"></div>
-
-		 		<h4>Categories</h4>
-		 		<div class="hline"></div>
-			 		<p ng-repeat="item in vm.countByCategory" ng-click="vm.selectCategory(item.name)">
-						<a href="#"><i class="fa fa-angle-right"></i> {{item.name}}</a> <span class="badge badge-theme pull-right">{{item.count}}</span>
-					</p>
-		 		<div class="spacing"></div>
-	 		</div>
-	 	</div><! --/row -->
-	 </div><! --/container -->
+			<div ng-show="vm.shapes.length == 0">Nothing</div>
+		</div><!--/col-lg-8 -->
+	</div><! --/row -->
+ </div><! --/container -->
