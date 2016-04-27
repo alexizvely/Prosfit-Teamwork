@@ -632,7 +632,7 @@ abbr[data-original-title] {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  font-size: 17.5px;
+  font-size: 17px;
   border-left: 5px solid #eee;
 }
 blockquote p:last-child,
@@ -3226,7 +3226,6 @@ input[type="button"].btn-block {
 }
 .btn-lg .caret {
   border-width: 5px 5px 0;
-  border-bottom-width: 0;
 }
 .dropup .btn-lg .caret {
   border-width: 0 5px 5px;
@@ -5120,7 +5119,6 @@ button.close {
   position: relative;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 6px;
   outline: none;
@@ -5145,7 +5143,7 @@ button.close {
   opacity: .5;
 }
 .modal-header {
-  min-height: 16.42857143px;
+  min-height: 16px;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -5304,7 +5302,6 @@ button.close {
   white-space: normal;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);

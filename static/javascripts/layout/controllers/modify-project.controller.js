@@ -23,10 +23,13 @@
         var colorpickerInput = $('#cp1');
         var divContainer = $('#svg-container');
         var drawnSvg = $("#svg");
+        var oldShape = {};
 
         singleShapesData.getShape(id)
             .then(function(data) {
                 vm.shape = data;
+                oldShape = data;
+                selectedFigure = vm.shape.shape_type;
                 color = '#' + vm.shape.color;
                 drawFigure(vm.shape.dimension_x, vm.shape.dimension_y, vm.shape.dimension_z, color, vm.shape.shape_type);
                 colorpickerInput.val(color);
@@ -44,29 +47,6 @@
             });
             colorpickerInput.val(color);
             colorpickerInput.colorpicker('update');
-        });
-
-        $("input[name=shapeType]:radio").change(function () {
-            var val = $(this).val();
-            if(val == 'Cuboid'){
-                selectedFigure = 'po';
-                drawnSvg.html("");
-                $("#dim-y-label").addClass().addClass("show-custom").show();
-                $("#dim-z-label").addClass().addClass("show-custom").show();
-                drawFigure(width, height, depth, color, selectedFigure);
-            } else if (val == 'Sphere') {
-                selectedFigure = 'sp';
-                drawnSvg.html("");
-                $("#dim-y-label").addClass().addClass("hide-custom").hide();
-                $("#dim-z-label").addClass().addClass("hide-custom").hide();
-                drawFigure(width, height, depth, color, selectedFigure);
-            } else if (val == 'Cube') {
-                selectedFigure = 'cu';
-                drawnSvg.html("");
-                $("#dim-y-label").addClass().addClass("hide-custom").hide();
-                $("#dim-z-label").addClass().addClass("hide-custom").hide();
-                drawFigure(width, height, depth, color, selectedFigure);
-            }
         });
 
         colorpickerInput.colorpicker().on('changeColor', function(ev){
@@ -239,7 +219,7 @@
             formData.append('name', name);
 
             var request = new XMLHttpRequest();
-            request.open("POST", "/api/v1/projects/" + id + "/");
+            request.open("PUT", "/api/v1/projects/" + id + "/");
             request.setRequestHeader('X-CSRFToken',$cookies.csrftoken);
             //////Console log the request
             //for(var pair of formData.entries()) {
@@ -259,7 +239,7 @@
             request.onreadystatechange = function (oEvent) {
                 if (request.readyState === 4) {
                     if (request.status === 200 || request.status === 201) {
-                        console.log(request.responseText)
+                        console.log(request.responseText);
                         onSuccess();
                     } else {
                         console.log("Error", request.statusText);
@@ -284,19 +264,18 @@
         }
 
         function submitProject(project) {
+            console.log(project);
+            console.log(oldShape);
             var svgText = '<?xml version=\"1.0\" standalone=\"no\"?>\r\n<!DOCTYPE svg PUBLIC \"-\/\/W3C\/\/DTD SVG 1.1\/\/EN\"\r\n \"http:\/\/www.w3.org\/Graphics\/SVG\/1.1\/DTD\/svg11.dtd\">\r\n <svg width=\"100%\" height=\"100%\"' + divContainer.children().html()+'<\/svg>';
             svgText = htmlEntitiesEscape(svgText);
-            color = colorpickerInput.val().substring(1);
-            selectedFigure = $("input[name=shapeType]:radio").val();
-            var valueFigureForServer = '';
-            if(selectedFigure == 'Cube'){
-                valueFigureForServer = 'cu';
-            }else if(selectedFigure == 'Cuboid'){
-                valueFigureForServer = 'po';
-            }else{
-                valueFigureForServer = 'sp';
-            }
-            sendFileToServer(valueFigureForServer, project.dimension_x, project.dimension_y, project.dimension_z, color, 'saved', svgText, vm.shape.name, id);
+            var color = colorpickerInput.val().substring(1);
+
+
+            var dimensionX = project.dimension_x || oldShape.dimension_x;
+            var dimensionY = project.dimension_y || oldShape.dimension_y;
+            var dimensionZ = project.dimension_z || oldShape.dimension_z;
+
+            sendFileToServer(oldShape.shape_type, dimensionX, dimensionY, dimensionZ, color, 'saved', svgText, oldShape.name, oldShape.id);
         }
     }
 
